@@ -1,0 +1,119 @@
+schema {
+    query: Query
+}
+
+
+type Query {
+    getArticleById(article_id: ID!): Article
+    getArticles(title: String, page: Int! size:Int! sortedBy: [String!]! direction:[Direction!]): [Article]
+
+    getCommentsByArticleId(article_id: ID! page: Int! size:Int! sortedBy: [String!]! direction:[Direction!]): [Comment]
+
+    getCategories(name: String, page: Int! size:Int! sortedBy: [String!]! direction:[Direction!]): [Category]
+
+    getTags(name: String, page: Int! size:Int! sortedBy: [String!]! direction:[Direction!]): [Tag]
+
+    getAuthorById(user_id: ID!): Author
+    getAuthors(name: String, page: Int! size:Int! sortedBy: [String!]! direction:[Direction!]): [Author]
+
+    getUserById(user_id: ID!): User
+    getUsers(name: String, page: Int! size:Int! sortedBy: [String!]! direction:[Direction!]): [User]
+}
+
+enum Direction {
+    ASC
+    DESC
+}
+
+scalar Long
+scalar Short
+
+type Article {
+    id: ID
+    updateOn: String
+    rating: Long
+    viewsCounter: Long
+    likesCounter: Long
+    author: Author
+    title: String
+    body: String
+    category: Category
+    tags: [Tag]
+    createdOn: String
+    published: Direction
+    publishedDate: String
+    status: ArticleStatus
+}
+
+enum ArticleStatus {
+    PUBLISHED
+    AWAITING_PUBLICATION
+    PUBLICATION_DENIED
+    IN_DEVELOPING
+}
+
+type Comment {
+    id: ID
+    text: String
+    user: User
+    article: Article
+    likesCounter: Long
+    createdOn: String
+}
+
+
+type Category {
+    id: ID
+    name: String
+    author: User
+    rating: Long
+}
+
+type Tag {
+    id: ID
+    name: String
+    author: User
+    rating: Long
+}
+
+type Author{
+    id: ID
+    rating: Long
+    nickname: String
+    accountIdentification: String
+    accountConfirmed: Boolean
+    accountEnabled : Boolean
+    online : Boolean
+    lockoutEnd : String
+    roles : [Role]
+    comments: Comment
+    createdOn: String
+}
+
+type User {
+    id: ID
+    nickname: String
+    accountIdentification: String
+    accountConfirmed: Boolean
+    accountEnabled : Boolean
+    online : Boolean
+    lockoutEnd : String
+    roles : [Role]
+    comments: Comment
+    createdOn: String
+    avatar: UserFile
+}
+
+type UserFile{
+    id: ID
+    contentType: String
+    size: Long
+    data: String
+    createdOn: String
+}
+
+
+type Role {
+    id: Short
+    name: String
+}

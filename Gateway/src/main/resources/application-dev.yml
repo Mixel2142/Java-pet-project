@@ -1,0 +1,79 @@
+server:
+  port: 8080
+
+spring:
+  application:
+    name: api-gateway
+  cloud:
+    gateway:
+      discovery:
+        locator:
+          enabled: true
+          lowerCaseServiceId: true
+      routes:
+        - id: monolit
+          uri: lb://monolit
+          predicates:
+            - Path=/api/monolit/**
+          filters:
+            - RewritePath=/api/monolit/(?<path>/?.*), $\{path}
+            - name: RequestRateLimiter
+              args:
+                redis-rate-limiter.replenishRate: 20
+                # how many requests person can send per second
+                redis-rate-limiter.burstCapacity: 40
+                # how many requests person can send per single second (Capacity of redis buffer per person)
+        - id: file_storage
+          uri: lb://file_storage
+          predicates:
+            - Method=GET
+            - Path=/api/file_storage/**
+          filters:
+            - RewritePath=/api(?<path>/?.*), $\{path}
+            - name: RequestRateLimiter
+              args:
+                redis-rate-limiter.replenishRate: 20
+                # how many requests person can send per second
+                redis-rate-limiter.burstCapacity: 40
+                # how many requests person can send per single second (Capacity of redis buffer per person)
+
+    loadbalancer:
+      ribbon:
+        enabled: false
+  redis:
+    host: ${REDIS_HOST}
+
+# SPRING BOOT ADMIN CLIENT {
+#Эти учетные данные будут использоваться Admin Server для аутентификации на конечных точках привода клиента
+#spring.boot.admin.client.instance.metadata.user.name: ACTUATOR_LOGIN
+#spring.boot.admin.client.instance.metadata.user.password: ACTUATOR_PASSWORD
+#
+#spring.security.user.name: ACTUATOR_LOGIN
+#spring.security.user.password: ACTUATOR_PASSWORD
+#management.security.role: ACTUATOR
+
+management:
+  endpoint:
+    shutdown.enabled: true
+    heapdump.enabled: false
+    health.show-details: always
+  endpoints:
+    web.exposure.include: "*"
+
+# SPRING BOOT ADMIN CLIENT }
+
+eureka:
+  instance:
+    preferIpAddress: false
+  client:
+    registryFetchIntervalSeconds: 5
+    registerWithEureka: true
+    fetchRegistry: true
+    serviceUrl:
+      defaultZone: ${EUREKA_HOST}
+    healthcheck:
+      enabled: true
+#instance.preferIpAddress в true и, когда приложение регистрируется в eureka, оно использует свой IP-адрес, а не имя хоста.
+
+
+

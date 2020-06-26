@@ -1,0 +1,86 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Configuration status="debug">
+
+    <Appenders>
+
+        <RollingFile name="JSONLogfileAppender" fileName="logs/logfile.json"
+                     filePattern="logs/logfile-%d{yyyy-MM-dd}-%i.log.gz">
+
+            <JsonLayout complete="true" compact="true" eventEol="true" includeTimeMillis="true"
+                        includeStacktrace="false">
+                <KeyValuePair key="timestamp" value="$${date:yyyy-MM-dd'T'HH:mm}"/>
+            </JsonLayout>
+            <!--            <BurstFilter level="INFO" rate="100" maxBurst="100"/> ограничение по скорости записи логов, если превышает некоторую скорость,то логи отбрасывать-->
+            <Policies>
+                <!--                Максимальный размер файла лога до сжатия-->
+                <SizeBasedTriggeringPolicy size="10 MB"/>
+            </Policies>
+            <!--            максимальное кол-во архивов с логами-->
+            <DefaultRolloverStrategy max="100"/>
+        </RollingFile>
+
+        <RollingFile name="JSONLogfileAppenderAppStatistic" fileName="logs/appStatistic/logfile.json"
+                     filePattern="logs/logfile-%d{yyyy-MM-dd}-%i.log.gz">
+
+            <JsonLayout complete="true" compact="true" eventEol="true" includeTimeMillis="true"
+                        includeStacktrace="false">
+                <KeyValuePair key="timestamp" value="$${date:yyyy-MM-dd'T'HH:mm}"/>
+            </JsonLayout>
+            <!--            <BurstFilter level="INFO" rate="100" maxBurst="100"/> ограничение по скорости записи логов, если превышает некоторую скорость,то логи отбрасывать-->
+            <Policies>
+                <!--                Максимальный размер файла лога до сжатия-->
+                <SizeBasedTriggeringPolicy size="10 MB"/>
+            </Policies>
+            <!--            максимальное кол-во архивов с логами-->
+            <DefaultRolloverStrategy max="100"/>
+        </RollingFile>
+
+
+        <Async name="AsyncAppender" bufferSize="100">
+            <AppenderRef ref="JSONLogfileAppender"/>
+        </Async>
+
+        <Async name="AsyncAppenderAppStatistic" bufferSize="100">
+            <AppenderRef ref="JSONLogfileAppenderAppStatistic"/>
+        </Async>
+
+        <Console name="Console" target="SYSTEM_OUT">
+            <PatternLayout pattern="%d{dd MMM yyyy HH:mm:ss} [%t] %-5level %logger{36} - %msg %n"/>
+        </Console>
+    </Appenders>
+
+    <Loggers>
+
+<!--        общий лог-->
+        <Logger name="ASYNC__JSON__FILE__APPENDER" level="debug"
+                additivity="false">
+            <AppenderRef ref="AsyncAppender"/>
+<!--          Закомментировать строчку ниже для прода-->
+            <AppenderRef ref="Console"/>
+        </Logger>
+
+
+<!--        Время выполнения функций-->
+        <Logger name="ASYNC__JSON__FILE__APPENDER_APP_STATISTIC" level="debug"
+                additivity="false">
+            <AppenderRef ref="AsyncAppenderAppStatistic"/>
+            <!--          Закомментировать строчку ниже для прода-->
+<!--            <AppenderRef ref="Console"/>-->
+        </Logger>
+
+<!--
+        <Logger name="com.sfedu.backend.aspect.LoggingAspect" level="INFO" additivity="false">
+            <AppenderRef ref="Console"/>
+        </Logger>
+
+        <Logger name="com.sfedu.backend.BackendApplication" level="debug" additivity="false">
+            <AppenderRef ref="Console"/>
+        </Logger>-->
+
+        <Root level="info">
+            <AppenderRef ref="Console"/>
+        </Root>
+
+    </Loggers>
+
+</Configuration>
