@@ -10,6 +10,7 @@
         <option value="$PROJECT_DIR$/Gateway/pom.xml" />
         <option value="$PROJECT_DIR$/FileStorage/pom.xml" />
         <option value="$PROJECT_DIR$/EmailSender/pom.xml" />
+        <option value="$PROJECT_DIR$/AuthService/pom.xml" />
       </list>
     </option>
   </component>

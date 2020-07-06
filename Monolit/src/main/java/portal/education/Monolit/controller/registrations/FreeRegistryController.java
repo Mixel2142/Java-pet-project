@@ -3,7 +3,7 @@ package portal.education.Monolit.controller.registrations;
 
 import portal.education.Monolit.data.dto.*;
 import portal.education.Monolit.data.model.person.User;
-import portal.education.Monolit.security.JwtPairTokenService;
+//import portal.education.Monolit.security.JwtPairTokenService;
 import portal.education.Monolit.security.SecurityService;
 import portal.education.Monolit.service.notification.MailSenderService;
 import portal.education.Monolit.service.notification.controller.PasswordForgetNotification;
@@ -54,11 +54,11 @@ public class FreeRegistryController {
     @Autowired
     PasswordForgetNotification passwordConfirmNotificationS;
 
-    @Autowired
-    AccountConfirmationService accountConfirmationService;
+//    @Autowired
+//    AccountConfirmationService accountConfirmationService;
 
-    @Autowired
-    JwtPairTokenService jwtPairTokenService;
+//    @Autowired
+//    JwtPairTokenService jwtPairTokenService;
 
     @Autowired
     private MailInfoFactory mailInfoFactory;
@@ -92,7 +92,7 @@ public class FreeRegistryController {
             userService.save(user);
             securityService.autoLogin(data.getNickname(), data.getPassword());
 
-            return jwtPairTokenService.createFromLogin(data.getNickname());
+            return null;//jwtPairTokenService.createFromLogin(data.getNickname());
         } catch (Exception e) {
             throw new ResponseStatusException(HttpStatus.INTERNAL_SERVER_ERROR, e.getMessage());
         }
@@ -111,9 +111,9 @@ public class FreeRegistryController {
         try {
             securityService.autoLogin(data.getLogin(), data.getPassword());
             userService.purgeAllExpiredTokens(data.getLogin());
-            JwtPairTokenDto newPair = jwtPairTokenService.createFromLogin(data.getLogin());
+//            JwtPairTokenDto newPair = jwtPairTokenService.createFromLogin(data.getLogin());
 
-            return ResponseEntity.ok().body(newPair);
+            return null;//ResponseEntity.ok().body(newPair);
         } catch (Exception e) {
             throw new ResponseStatusException(HttpStatus.INTERNAL_SERVER_ERROR, e.getMessage());
         }
@@ -147,16 +147,16 @@ public class FreeRegistryController {
                                                       @Parameter(hidden = true) HttpServletResponse response) throws IOException {
         String decodedToken = new String(Base64.getDecoder().decode(code));
         try {
-            jwtPairTokenService.validateAccessToken(decodedToken);
-
-            response.addHeader("token", decodedToken);
-            response.sendRedirect(jwtPairTokenService.getRedirectOkFromToken(decodedToken));//редеректить на страничку с параметром код, чтобы она смогла вернуть его обратно
+//            jwtPairTokenService.validateAccessToken(decodedToken);
+//
+//            response.addHeader("token", decodedToken);
+//            response.sendRedirect(jwtPairTokenService.getRedirectOkFromToken(decodedToken));//редеректить на страничку с параметром код, чтобы она смогла вернуть его обратно
 
             return new ResponseEntity<>(HttpStatus.TEMPORARY_REDIRECT);
         } catch (Exception e) {
 
             response.addHeader("Error message", e.getMessage());
-            response.sendRedirect(jwtPairTokenService.getRedirectErrorFromToken(decodedToken));
+//            response.sendRedirect(jwtPairTokenService.getRedirectErrorFromToken(decodedToken));
 
             return new ResponseEntity<>(HttpStatus.I_AM_A_TEAPOT);
         }
@@ -169,12 +169,12 @@ public class FreeRegistryController {
 
         String decodedToken = new String(Base64.getDecoder().decode(code));
         try {
-            jwtPairTokenService.validateAccessToken(decodedToken);
-            userService.emailConfirmedChangeTrue(decodedToken);
-            accountConfirmationService.validAccountOrThrowError(decodedToken);
-            response.sendRedirect(jwtPairTokenService.getRedirectOkFromToken(decodedToken));
+//            jwtPairTokenService.validateAccessToken(decodedToken);
+//            userService.emailConfirmedChangeTrue(decodedToken);
+//            accountConfirmationService.validAccountOrThrowError(decodedToken);
+//            response.sendRedirect(jwtPairTokenService.getRedirectOkFromToken(decodedToken));
         } catch (Exception e) {
-            response.sendRedirect(jwtPairTokenService.getRedirectErrorFromToken(decodedToken));
+//            response.sendRedirect(jwtPairTokenService.getRedirectErrorFromToken(decodedToken));
         }
     }
 

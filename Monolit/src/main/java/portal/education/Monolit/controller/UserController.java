@@ -4,7 +4,6 @@ import com.fasterxml.jackson.annotation.JsonView;
 import portal.education.Monolit.data.dto.CommentDto;
 import portal.education.Monolit.data.dto.RequestLikeDto;
 import portal.education.Monolit.data.dto.ResponseLikeDto;
-import portal.education.Monolit.data.dto.ViewDto;
 import portal.education.Monolit.data.jsonview.JsonViews;
 import portal.education.Monolit.data.model.comment.Comment;
 import portal.education.Monolit.data.model.person.User;
@@ -13,7 +12,7 @@ import portal.education.Monolit.data.repos.article.ArticleRepository;
 import portal.education.Monolit.data.repos.person.AuthorRepository;
 import portal.education.Monolit.service.CommentCrudService;
 import portal.education.Monolit.service.article.ArticleCrudService;
-import portal.education.Monolit.utils.JwtTokenUtil;
+import portal.education.Monolit.utils.JwtUtilForMonolit;
 import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.Parameter;
 import io.swagger.v3.oas.annotations.media.Content;
@@ -24,13 +23,11 @@ import io.swagger.v3.oas.annotations.tags.Tag;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.MediaType;
-import org.springframework.http.ResponseEntity;
 import org.springframework.security.core.annotation.AuthenticationPrincipal;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.multipart.MultipartFile;
 
 import javax.validation.Valid;
-import javax.validation.constraints.NotNull;
 import java.util.UUID;
 
 
@@ -59,7 +56,7 @@ public class UserController {
 
 
     @Autowired
-    JwtTokenUtil tokenUtil;
+    JwtUtilForMonolit tokenUtil;
 
 
     @Operation(summary = "Put comment in article by article's articleId")

@@ -30,8 +30,8 @@ public class MailInfoFactoryIml implements MailInfoFactory {
     @Autowired
     UserService userService;
 
-    @Autowired
-    AccountConfirmationService accountConfirmationService;
+//    @Autowired
+//    AccountConfirmationService accountConfirmationService;
 
     @Override
     public MailInfo buildFromAccountConfirmDto(AccountConfirmDto dto) {
@@ -73,7 +73,7 @@ public class MailInfoFactoryIml implements MailInfoFactory {
 
         User user = userService.findByNickname(dto.getNickname());
 
-        var acConf = accountConfirmationService.findByUserOrThrow(user);
+//        var acConf = accountConfirmationService.findByUserOrThrow(user);
 
         var okAndErrorUrlDto = new OkAndErrorUrlDto(dto.getRedirectOk(), dto.getRedirectError(), request);
         String jsonOkAndErrorUrlDto = jsonObjectConverter.objectToJson(okAndErrorUrlDto);
@@ -83,7 +83,7 @@ public class MailInfoFactoryIml implements MailInfoFactory {
         mailInfo.setFrom(null);
         mailInfo.setTo(List.of(user));
         mailInfo.setTypeNotification(TypeNotification.CONFIRM + TypeNotification.PASSWORD_FORGET);
-        mailInfo.setTypeMailSender(acConf.getTypeAccount());
+//        mailInfo.setTypeMailSender(acConf.getTypeAccount());
         mailInfo.setJsonData(jsonOkAndErrorUrlDto);
 
         return mailInfo;

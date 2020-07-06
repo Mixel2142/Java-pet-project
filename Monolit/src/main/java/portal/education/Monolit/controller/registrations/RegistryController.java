@@ -9,7 +9,7 @@ import portal.education.Monolit.data.dto.UserAttemptToAccountConfirmDto;
 import portal.education.Monolit.data.jsonview.JsonViews;
 import portal.education.Monolit.data.model.person.User;
 import portal.education.Monolit.data.repos.person.UserRepository;
-import portal.education.Monolit.security.JwtPairTokenService;
+//import portal.education.Monolit.security.JwtPairTokenService;
 import portal.education.Monolit.service.notification.MailSenderService;
 import portal.education.Monolit.service.notification.mailInfo.MailInfoFactory;
 import portal.education.Monolit.service.person.UserService;
@@ -45,8 +45,8 @@ public class RegistryController {
     @Autowired
     private UserService userService;
 
-    @Autowired
-    private JwtPairTokenService jwtPairTokenService;
+//    @Autowired
+//    private JwtPairTokenService jwtPairTokenService;
 
     @Autowired
     private MailInfoFactory mailInfoFactory;
@@ -97,8 +97,8 @@ public class RegistryController {
     @PostMapping({"/token/refresh"})
     public JwtPairTokenDto refreshTokenController(@Parameter(hidden = true) @RequestAttribute @NotNull String token) {
         try {
-            jwtPairTokenService.validateRefreshToken(token);
-            return jwtPairTokenService.createFromTokin(token);
+//            jwtPairTokenService.validateRefreshToken(token);
+            return null;//jwtPairTokenService.createFromTokin(token);
         } catch (Exception e) {
             log.error(e);
             throw new ResponseStatusException(HttpStatus.INTERNAL_SERVER_ERROR, e.getMessage());
@@ -126,8 +126,8 @@ public class RegistryController {
     public void logoutController(@Parameter(hidden = true) @AuthenticationPrincipal User user,
                                  @Parameter(hidden = true) @RequestAttribute @NotNull String token) {
         try {
-            jwtPairTokenService.validateRefreshToken(token);
-            jwtPairTokenService.deleteRefreshToken(token, user);
+//            jwtPairTokenService.validateRefreshToken(token);
+//            jwtPairTokenService.deleteRefreshToken(token, user);
             userService.changeActiveStatus(user.getNickname(), false);
         } catch (Exception e) {
             log.error(e);

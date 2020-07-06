@@ -6,7 +6,7 @@ import portal.education.Monolit.data.repos.person.UserRepository;
 import portal.education.Monolit.data.model.person.Role;
 import portal.education.Monolit.data.model.person.User;
 import portal.education.Monolit.utils.ExcMsg;
-import portal.education.Monolit.utils.JwtTokenUtil;
+import portal.education.Monolit.utils.JwtUtilForMonolit;
 import lombok.NoArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.PageRequest;
@@ -46,18 +46,18 @@ public class UserServiceImpl implements UserService {
     UserDetailsService userDetailsService;
 
     @Autowired
-    JwtTokenUtil tokenUtil;
+    JwtUtilForMonolit tokenUtil;
 
     public void emailConfirmedChangeTrue(String token) throws RuntimeException {
-        String nickname = tokenUtil.getNicknameFromToken(token);
+//        String nickname = tokenUtil.getNicknameFromToken(token);
 
-        User user = this.findByNickname(nickname);
+//        User user = this.findByNickname(nickname);
 
-        user.setAccountIdentification(tokenUtil.getAccountIdentification(token));
-        if (user.isAccountConfirmed())
-            throw new RuntimeException("Email уже подтверждён!");
-
-        user.setAccountConfirmed(true);
+//        user.setAccountIdentification(tokenUtil.getClaimsToString(token));
+//        if (user.isAccountConfirmed())
+//            throw new RuntimeException("Email уже подтверждён!");
+//
+//        user.setAccountConfirmed(true);
     }
 
     @Override

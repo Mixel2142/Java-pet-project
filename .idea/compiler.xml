@@ -7,8 +7,9 @@
         <sourceOutputDir name="target/generated-sources/annotations" />
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
-        <module name="FileStorage" />
+        <module name="AuthService" />
         <module name="Monitor" />
+        <module name="FileStorage" />
         <module name="Gateway" />
         <module name="EmailSender" />
         <module name="Monolit" />
@@ -17,6 +18,7 @@
   </component>
   <component name="JavacSettings">
     <option name="ADDITIONAL_OPTIONS_OVERRIDE">
+      <module name="AuthService" options="-parameters" />
       <module name="Backend" options="" />
       <module name="EmailSender" options="-parameters" />
       <module name="FileStorage" options="-parameters" />

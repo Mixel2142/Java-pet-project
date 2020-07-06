@@ -4,7 +4,7 @@ import portal.education.Monolit.data.dto.OkAndErrorUrlDto;
 import portal.education.Monolit.data.model.abstractModel.AbstractConfirmation;
 import portal.education.Monolit.data.model.notification.AccountConfirmation;
 import portal.education.Monolit.data.model.person.User;
-import portal.education.Monolit.utils.JwtTokenUtil;
+import portal.education.Monolit.utils.JwtUtilForMonolit;
 import org.springframework.beans.factory.annotation.Value;
 
 import javax.transaction.Transactional;
@@ -55,8 +55,8 @@ public class ConfirmNotification {
         return false;
     }
 
-    public static String generateConfirmationToken(JwtTokenUtil jwtTokenUtil, OkAndErrorUrlDto dto, AccountConfirmation confirmation, Long timeLifeLink) {
-        return jwtTokenUtil.generateDataPayloadToken(
+    public static String generateConfirmationToken(JwtUtilForMonolit jwtUtilForMonolit, OkAndErrorUrlDto dto, AccountConfirmation confirmation, Long timeLifeLink) {
+        return jwtUtilForMonolit.generateDataPayloadToken(
                 confirmation.getUser().getNickname(),
                 Map.of("redirectOk", dto.getRedirectOk(), "redirectError", dto.getRedirectError(), "accountIdentification", confirmation.getAccountIdentification(), "typeAccount", confirmation.getTypeAccount()),
                 timeLifeLink

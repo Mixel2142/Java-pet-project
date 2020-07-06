@@ -7,8 +7,7 @@ import portal.education.Monolit.service.notification.controller.ConfirmNotificat
 import portal.education.Monolit.service.notification.controller.TypeNotification;
 import portal.education.Monolit.service.notification.sender.TypeMailSender;
 import portal.education.Monolit.service.notification.mailInfo.MailInfo;
-import portal.education.Monolit.service.person.AccountConfirmationService;
-import portal.education.Monolit.utils.JwtTokenUtil;
+import portal.education.Monolit.utils.JwtUtilForMonolit;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -22,7 +21,7 @@ public class PasswordForgetEmailGenerator extends ConfirmNotification implements
     final String url = "/api/free/registry/password/forget/check?code=";
 
     @Autowired
-    JwtTokenUtil jwtTokenUtil;
+    JwtUtilForMonolit jwtUtilForMonolit;
 
     @Autowired
     JsonObjectConverter jsonObjectConverter;
@@ -33,20 +32,21 @@ public class PasswordForgetEmailGenerator extends ConfirmNotification implements
     @Autowired
     EmailConstructHelper constructEmail;
 
-    @Autowired
-    AccountConfirmationService accountConfirmationService;
+//    @Autowired
+//    AccountConfirmationService accountConfirmationService;
 
     @Override
     public String generate(MailInfo mailInfo, User user) {
         OkAndErrorUrlDto dto = jsonObjectConverter.jsonToObject(mailInfo.getJsonData(), OkAndErrorUrlDto.class);
 
-        var confirmation = accountConfirmationService.findByUserOrThrow(user);
-
-        String token = generateConfirmationToken(jwtTokenUtil, dto, confirmation, TIME_LIFE_PASSWORD_CONFIRM_LINK);
-
-        String body = confirmBodyBuilder.build(user, token, dto, greeting, info, url);
-
-        return jsonObjectConverter.objectToJson(constructEmail.constructEmail("Смена пароля", body, confirmation));
+//        var confirmation = accountConfirmationService.findByUserOrThrow(user);
+//
+//        String token = generateConfirmationToken(jwtUtilForMonolit, dto, confirmation, TIME_LIFE_PASSWORD_CONFIRM_LINK);
+//
+//        String body = confirmBodyBuilder.build(user, token, dto, greeting, info, url);
+//
+//        return jsonObjectConverter.objectToJson(constructEmail.constructEmail("Смена пароля", body, confirmation));
+        return  null;
     }
 
     @Override

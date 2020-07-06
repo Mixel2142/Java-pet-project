@@ -5,8 +5,7 @@ import portal.education.Monolit.data.model.person.User;
 import portal.education.Monolit.service.JsonObjectConverter;
 import portal.education.Monolit.service.notification.controller.ConfirmNotification;
 import portal.education.Monolit.service.notification.mailInfo.MailInfo;
-import portal.education.Monolit.service.person.AccountConfirmationService;
-import portal.education.Monolit.utils.JwtTokenUtil;
+import portal.education.Monolit.utils.JwtUtilForMonolit;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -25,7 +24,7 @@ public class ConfirmEmailGenerator extends ConfirmNotification implements MailGe
     final String url = "/api/free/registry/account/check?code=";
 
     @Autowired
-    JwtTokenUtil jwtTokenUtil;
+    JwtUtilForMonolit jwtUtilForMonolit;
 
     @Autowired
     JsonObjectConverter jsonObjectConverter;
@@ -36,21 +35,22 @@ public class ConfirmEmailGenerator extends ConfirmNotification implements MailGe
     @Autowired
     EmailConstructHelper constructEmail;
 
-    @Autowired
-    AccountConfirmationService accountConfirmationService;
+//    @Autowired
+//    AccountConfirmationService accountConfirmationService;
 
     @Override
     public String generate(MailInfo mailInfo, User user) {
 
         OkAndErrorUrlDto dto = jsonObjectConverter.jsonToObject(mailInfo.getJsonData(), OkAndErrorUrlDto.class);
 
-        var confirmation = accountConfirmationService.findByUserOrCreate(MAX_AMOUNT_CONFIRM_ATTEMPTS,user,mailInfo.getTypeMailSender(),mailInfo.getToAddress());
-
-        String token = generateConfirmationToken(jwtTokenUtil, dto, confirmation, TIME_LIFE_ACCOUNT_CONFIRM_LINK);
-
-        String body = confirmBodyBuilder.build(user, token, dto, greeting, info, url);
-
-        return jsonObjectConverter.objectToJson(constructEmail.constructEmail("Подтверждение почты", body, confirmation));
+////        var confirmation = accountConfirmationService.findByUserOrCreate(MAX_AMOUNT_CONFIRM_ATTEMPTS,user,mailInfo.getTypeMailSender(),mailInfo.getToAddress());
+//
+//        String token = generateConfirmationToken(jwtUtilForMonolit, dto, confirmation, TIME_LIFE_ACCOUNT_CONFIRM_LINK);
+//
+//        String body = confirmBodyBuilder.build(user, token, dto, greeting, info, url);
+//
+//        return jsonObjectConverter.objectToJson(constructEmail.constructEmail("Подтверждение почты", body, confirmation));
+        return null;
     }
 
     @Override

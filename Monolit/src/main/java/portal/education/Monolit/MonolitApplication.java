@@ -4,13 +4,10 @@ import lombok.extern.log4j.Log4j2;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
-import org.springframework.cloud.netflix.eureka.EnableEurekaClient;
+//import org.springframework.cloud.netflix.eureka.EnableEurekaClient;
 
 @SpringBootApplication
-@EnableEurekaClient
-//@ComponentScan(basePackages = {"portal.education.Monolit"})
-//@EntityScan("portal.education.Monolit.data.model")
-//@EnableJpaRepositories("portal.education.Monolit.data.repos")
+//@EnableEurekaClient
 @Log4j2(topic = "ASYNC__JSON__FILE__APPENDER")
 public class MonolitApplication {
 

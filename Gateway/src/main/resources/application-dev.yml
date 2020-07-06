@@ -11,30 +11,52 @@ spring:
           enabled: true
           lowerCaseServiceId: true
       routes:
+        - id: monolithello
+            uri: lb://monolit
+            predicates:
+              - Path=/hellofree
+        - id: monolithellonot
+            uri: lb://monolit
+            predicates:
+              - Path=/hellonotfree
         - id: monolit
           uri: lb://monolit
           predicates:
-            - Path=/api/monolit/**
+            - Path=/api/monolit/{segment}
           filters:
-            - RewritePath=/api/monolit/(?<path>/?.*), $\{path}
+            - SetPath=/{segment}
             - name: RequestRateLimiter
               args:
-                redis-rate-limiter.replenishRate: 20
+                redis-rate-limiter.replenishRate: 5
                 # how many requests person can send per second
-                redis-rate-limiter.burstCapacity: 40
+                redis-rate-limiter.burstCapacity: 10
                 # how many requests person can send per single second (Capacity of redis buffer per person)
+        - id: auth-service
+            uri: lb://auth-service
+            predicates:
+#              - Method=POST
+#              - Path=/api/authService/update/{segment}
+              - Path=/api/auth/{segment}
+            filters:
+              - SetPath=/auth/{segment}
+              - name: RequestRateLimiter
+                args:
+                  redis-rate-limiter.replenishRate: 1
+                  # how many requests person can send per second
+                  redis-rate-limiter.burstCapacity: 2
+                  # how many requests person can send per single second (Capacity of redis buffer per person)
         - id: file_storage
           uri: lb://file_storage
           predicates:
             - Method=GET
-            - Path=/api/file_storage/**
+            - Path=/api/fileStorage/{segment}
           filters:
-            - RewritePath=/api(?<path>/?.*), $\{path}
+            - SetPath=/{segment}
             - name: RequestRateLimiter
               args:
-                redis-rate-limiter.replenishRate: 20
+                redis-rate-limiter.replenishRate: 5
                 # how many requests person can send per second
-                redis-rate-limiter.burstCapacity: 40
+                redis-rate-limiter.burstCapacity: 10
                 # how many requests person can send per single second (Capacity of redis buffer per person)
 
     loadbalancer:

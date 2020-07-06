@@ -39,6 +39,8 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
                 .httpBasic()
                 .and()
                 .authorizeRequests()
+                .antMatchers("/hellofree").permitAll()
+                .antMatchers("/hellonotfree").hasRole("USER")
                 .antMatchers("/vendor/graphiql/**").permitAll()// TODO delete on prod
                 .antMatchers("/free/**").permitAll()// dont authenticate this particular request
                 .antMatchers("/registry/**").hasAnyRole("USER","AUTHOR","ADMIN")

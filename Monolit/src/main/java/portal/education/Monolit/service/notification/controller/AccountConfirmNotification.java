@@ -15,9 +15,9 @@ import javax.transaction.Transactional;
 @Transactional
 public class AccountConfirmNotification extends ConfirmNotification implements ControllerNotification {
 
-
-    @Autowired
-    private AccountConfirmationService accountConfirmationService;
+//
+//    @Autowired
+//    private AccountConfirmationService accountConfirmationService;
 
     @Autowired
     private AccountConfirmationRepository confNotDao;
@@ -25,15 +25,15 @@ public class AccountConfirmNotification extends ConfirmNotification implements C
     @Override
     public boolean isAvailable(MailInfo mailInfo, User user) {
 
-        var emailConfNotif = accountConfirmationService.findByUserOrCreate(
-                MAX_AMOUNT_CONFIRM_ATTEMPTS,
-                user,
-                mailInfo.getTypeMailSender(),
-                mailInfo.getToAddress()
-        );
+//        var emailConfNotif = accountConfirmationService.findByUserOrCreate(
+//                MAX_AMOUNT_CONFIRM_ATTEMPTS,
+//                user,
+//                mailInfo.getTypeMailSender(),
+//                mailInfo.getToAddress()
+//        );
 
         return super.isAvailable(user,
-                emailConfNotif,
+               null,// emailConfNotif,
                 MAX_AMOUNT_CONFIRM_ATTEMPTS,
                 TIME_INTERVAL_BETWEEN_GROUP_ATTEMPTS,
                 TIME_INTERVAL_BETWEEN_ATTEMPTS);

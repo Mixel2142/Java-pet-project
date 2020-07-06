@@ -1,11 +1,7 @@
 package portal.education.Monolit.utils;
 
 import io.jsonwebtoken.*;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
-import org.springframework.context.annotation.Scope;
-import org.springframework.security.core.userdetails.UserDetails;
-import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.stereotype.Component;
 
 import java.time.Instant;
@@ -13,37 +9,48 @@ import java.util.*;
 import java.util.function.Function;
 
 @Component
-@Scope(value = "singleton")
-public class JwtTokenUtil {
+public class JwtUtilForMonolit {
 
 
-    //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
     @Value("${jwt.secret}")
-    private String secret;
-
-    public static Long ACCESSTOKEN_TTL;
-
-    public static Long REFRESHTOKEN_TTL;
-
-    @Value("${jwt.time.validity.accesstoken}")
-    public void setAccesstoken(Long accesstoken) {
-        this.ACCESSTOKEN_TTL = accesstoken * 1000;
+    public void setSecret(String secret) {
+        JwtUtilForMonolit.secret = secret;
     }
 
-    @Value("${jwt.time.validity.refreshtoken}")
-    public void setRefreshtoken(Long refreshtoken) {
-        this.REFRESHTOKEN_TTL = refreshtoken * 1000;
-    }
+    private static String secret;
 
-    //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-    @Autowired
-    private UserDetailsService userDetailsService;
-
+    ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////// НОВЫЙ ФУНКЦИОНАЛ
 
     //retrieve username from jwt token
-    public String getNicknameFromToken(String token) {
+    public String getUserIdFromToken(String token) {
         return getClaimFromToken(token, Claims::getSubject);
     }
+
+
+    //check if the token has expired
+    public static Boolean isOneTypeToken(String token, String typeToken) {
+        try {
+            return getClaimFromToken(token, Claims::getAudience).equals(typeToken);
+        } catch (Exception e) {
+            return false;
+        }
+    }
+
+    public static String getPreTokenFromJwt(String jwt) {
+        return Jwts.parser().setSigningKey(secret)
+                .parseClaimsJws(jwt).getBody().get("token", String.class);
+    }
+
+    public static <T> T getClaimFromToken(String token, Function<Claims, T> claimsResolver) {
+        return claimsResolver.apply(getAllClaimsFromToken(token));
+    }
+
+    //for retrieveing any information from token we will need the secret key
+    private static Claims getAllClaimsFromToken(String token) {
+        return Jwts.parser().setSigningKey(secret).parseClaimsJws(token).getBody();
+    }
+    ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
 
     //retrieve username from jwt token
     public String getRedirectOkUrlFromToken(String token) {
@@ -64,7 +71,7 @@ public class JwtTokenUtil {
     }
 
     //retrieve username from jwt token
-    public String getAccountIdentification(String token) {//сообщение из прошлого :parser() идает ошибку если токен истёк(
+    public String getClaimsInString(String token) {//сообщение из прошлого :parser() идает ошибку если токен истёк(
 
         Claims claims = Jwts.parser().setSigningKey(secret)
                 .parseClaimsJws(token).getBody();
@@ -87,21 +94,6 @@ public class JwtTokenUtil {
     }
 
 
-    public <T> T getClaimFromToken(String token, Function<Claims, T> claimsResolver) {
-
-        final Claims claims = getAllClaimsFromToken(token);
-
-        return claimsResolver.apply(claims);
-
-    }
-
-    //for retrieveing any information from token we will need the secret key
-    private Claims getAllClaimsFromToken(String token) {
-
-        return Jwts.parser().setSigningKey(secret).parseClaimsJws(token).getBody();
-
-    }
-
     //check if the token has expired
     public Boolean isTokenExpired(String token) {
         try {
@@ -112,16 +104,16 @@ public class JwtTokenUtil {
         }
     }
 
-    //generate token for user
-    public String generateDataPayloadToken(String nickname, final Long time) {
-
-        Map<String, Object> claims = new HashMap<>();
-
-        final UserDetails userDetails = userDetailsService.loadUserByUsername(nickname);
-
-
-        return doGenerateToken(claims, userDetails.getUsername(), time);//userDetails.getUsername() поменять на свою строчку
-    }
+//    //generate token for user
+//    public String generateDataPayloadToken(String nickname, final Long time) {
+//
+//        Map<String, Object> claims = new HashMap<>();
+//
+////        final UserDetails userDetails = userDetailsService.loadUserByUsername(nickname);
+//
+//
+//        return doGenerateToken(claims, userDetails.getUsername(), time);//userDetails.getUsername() поменять на свою строчку
+//    }
 
     public String generateDataPayloadToken(String nickname, String redirectURL, final Long time) {
 
@@ -165,13 +157,13 @@ public class JwtTokenUtil {
                 .signWith(SignatureAlgorithm.HS512, secret).compact();
     }
 
-    //validate token
-    public Boolean validateToken(String token, UserDetails userDetails) {
-
-        final String username = getNicknameFromToken(token);
-
-        return (username.equals(userDetails.getUsername()) && !isTokenExpired(token));
-
-    }
+//    //validate token
+//    public Boolean validateToken(String token, UserDetails userDetails) {
+//
+//        final String username = getNicknameFromToken(token);
+//
+//        return (username.equals(userDetails.getUsername()) && !isTokenExpired(token));
+//
+//    }
 
 }

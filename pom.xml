@@ -19,6 +19,7 @@
         <module>FileStorage</module>
         <module>Monitor</module>
         <module>EmailSender</module>
+        <module>AuthService</module>
     </modules>
 
 </project>

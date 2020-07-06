@@ -7,13 +7,12 @@ services:
     ports:
       - ${MONOLIT_DB_PORT}:5432
     volumes:
-      - ./pg_data:${MONOLIT_PGDATA_DB}
+      - ./pg_data/monolit:${MONOLIT_PGDATA_DB}
     environment:
       POSTGRES_USER: ${MONOLIT_POSTGRES_USER}
       POSTGRES_PASSWORD: ${MONOLIT_POSTGRES_PASSWORD}
       POSTGRES_DB: ${MONOLIT_POSTGRES_NAME_DB}
       PGDATA: ${MONOLIT_PGDATA_DB}
-    restart: always
 
   monolit:
     build:
@@ -22,7 +21,6 @@ services:
     container_name: monolit
     ports:
       - ${MONOLIT_PORT}:${MONOLIT_PORT}
-      - 8090:8090
     volumes:
       - ./back_data:/opt/server/logs
     environment:
@@ -34,11 +32,43 @@ services:
       GRAPHQL_ENDPOINT_URI: ${GRAPHQL_ENDPOINT_URI}
       HOST_PREFIX: ${HOST_PREFIX}
       EUREKA_HOST: ${HOST_PREFIX}${EUREKA_SERVER_SYSTEM_LOGIN}:${EUREKA_SERVER_SYSTEM_PASSWORD}@monitor:${EUREKA_SERVER_PORT}/eureka
-    restart: always
     links:
       - monitor
     depends_on:
       - monolit-db
+
+  auth-db:
+    image: postgres:12.3-alpine
+    container_name: auth_postgres
+    ports:
+      - ${AUTH_DB_PORT}:5432
+    volumes:
+      - ./pg_data/auth:${AUTH_PGDATA_DB}
+    environment:
+      POSTGRES_USER: ${AUTH_POSTGRES_USER}
+      POSTGRES_PASSWORD: ${AUTH_POSTGRES_PASSWORD}
+      POSTGRES_DB: ${AUTH_POSTGRES_NAME_DB}
+      PGDATA: ${AUTH_PGDATA_DB}
+
+  auth-service:
+    build:
+      context: AuthService
+      dockerfile: AuthServise-dev.dockerfile
+    container_name: auth-service
+    ports:
+    - ${AUTH_PORT}:8090
+    environment:
+      POSTGRES_HOST: auth-db
+      POSTGRES_USER: ${AUTH_POSTGRES_USER}
+      POSTGRES_PASSWORD: ${AUTH_POSTGRES_PASSWORD}
+      POSTGRES_DB: ${AUTH_POSTGRES_NAME_DB}
+      AUTH_PORT: ${AUTH_PORT}
+      HOST_PREFIX: ${HOST_PREFIX}
+      EUREKA_HOST: ${HOST_PREFIX}${EUREKA_SERVER_SYSTEM_LOGIN}:${EUREKA_SERVER_SYSTEM_PASSWORD}@monitor:${EUREKA_SERVER_PORT}/eureka
+    links:
+      - monitor
+    depends_on:
+      - auth-db
 
   monitor:
     build:
@@ -56,7 +86,6 @@ services:
       EUREKA_SERVER_ADMIN_LOGIN: ${EUREKA_SERVER_ADMIN_LOGIN}
       EUREKA_SERVER_ADMIN_PASSWORD: ${EUREKA_SERVER_ADMIN_PASSWORD}
       EUREKA_CLIENT_URI: ${EUREKA_CLIENT_URI}
-    restart: always
 
   proxy-redis:
     build:
@@ -65,7 +94,6 @@ services:
     container_name: proxy-redis
     ports:
       - ${GATEWAYJ_REDIS_PORT}:${GATEWAYJ_REDIS_PORT}
-    restart: always
 
   proxy:
     build:
@@ -81,7 +109,6 @@ services:
       EUREKA_HOST: ${HOST_PREFIX}${EUREKA_SERVER_SYSTEM_LOGIN}:${EUREKA_SERVER_SYSTEM_PASSWORD}@monitor:${EUREKA_SERVER_PORT}/eureka
       GATEWAYJ_PORT: ${GATEWAYJ_PORT}
       REDIS_HOST: proxy-redis
-    restart: always
     depends_on:
       - proxy-redis
     links:

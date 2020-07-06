@@ -14,9 +14,9 @@ spring:
         - id: Monolit
           uri: lb://monolit
           predicates:
-            - Path=/api/monolit/**
+            - Path=/api/monolit/{segment}
           filters:
-            - RewritePath=/api/monolit/(?<path>/?.*), /$\{path}
+            - SetPath=/{segment}
             - name: RequestRateLimiter
               args:
                 redis-rate-limiter.replenishRate: 5
