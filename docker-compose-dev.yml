@@ -1,18 +1,18 @@
-version: '3.1'
+version: "3.8"
 services:
 
-  monolit-db:
+  core-db:
     image: postgres:12.3-alpine
-    container_name: monolit_postgres
+    container_name: core_postgres
     ports:
       - ${MONOLIT_DB_PORT}:5432
     volumes:
-      - ./pg_data/monolit:${MONOLIT_PGDATA_DB}
+      - ./pg_data/monolit:${PGDATA_DB}
     environment:
       POSTGRES_USER: ${MONOLIT_POSTGRES_USER}
       POSTGRES_PASSWORD: ${MONOLIT_POSTGRES_PASSWORD}
       POSTGRES_DB: ${MONOLIT_POSTGRES_NAME_DB}
-      PGDATA: ${MONOLIT_PGDATA_DB}
+      PGDATA: ${PGDATA_DB}
 
   monolit:
     build:
@@ -24,7 +24,7 @@ services:
     volumes:
       - ./back_data:/opt/server/logs
     environment:
-      POSTGRES_HOST: monolit-db
+      POSTGRES_HOST: core-db
       POSTGRES_USER: ${MONOLIT_POSTGRES_USER}
       POSTGRES_PASSWORD: ${MONOLIT_POSTGRES_PASSWORD}
       POSTGRES_DB: ${MONOLIT_POSTGRES_NAME_DB}
@@ -35,7 +35,7 @@ services:
     links:
       - monitor
     depends_on:
-      - monolit-db
+      - core-db
 
   auth-db:
     image: postgres:12.3-alpine
@@ -43,12 +43,12 @@ services:
     ports:
       - ${AUTH_DB_PORT}:5432
     volumes:
-      - ./pg_data/auth:${AUTH_PGDATA_DB}
+      - ./pg_data/auth:${PGDATA_DB}
     environment:
       POSTGRES_USER: ${AUTH_POSTGRES_USER}
       POSTGRES_PASSWORD: ${AUTH_POSTGRES_PASSWORD}
       POSTGRES_DB: ${AUTH_POSTGRES_NAME_DB}
-      PGDATA: ${AUTH_PGDATA_DB}
+      PGDATA: ${PGDATA_DB}
 
   auth-service:
     build:
@@ -65,10 +65,47 @@ services:
       AUTH_PORT: ${AUTH_PORT}
       HOST_PREFIX: ${HOST_PREFIX}
       EUREKA_HOST: ${HOST_PREFIX}${EUREKA_SERVER_SYSTEM_LOGIN}:${EUREKA_SERVER_SYSTEM_PASSWORD}@monitor:${EUREKA_SERVER_PORT}/eureka
+      ACTUATOR_LOGIN: ${AUTH_ACTUATOR_LOGIN}
+      ACTUATOR_PASSWORD: ${AUTH_ACTUATOR_PASSWORD}
     links:
       - monitor
     depends_on:
       - auth-db
+
+  file-storage-db:
+    image: postgres:12.3-alpine
+    container_name: file_storage_postgres
+    ports:
+      - ${FILE_STORAGE_DB_PORT}:5432
+    volumes:
+      - ./pg_data/fileStorage:${PGDATA_DB}
+    environment:
+      POSTGRES_USER: ${FILE_STORAGE_POSTGRES_USER}
+      POSTGRES_PASSWORD: ${FILE_STORAGE_POSTGRES_PASSWORD}
+      POSTGRES_DB: ${FILE_STORAGE_POSTGRES_NAME_DB}
+      PGDATA: ${PGDATA_DB}
+
+  file-storage-service:
+    build:
+      context: FileStorage
+      dockerfile: FileStorage-dev.dockerfile
+    container_name: file-storage
+    ports:
+      - ${FILE_STORAGE_PORT}:8090
+    environment:
+      POSTGRES_HOST: file-storage-db
+      POSTGRES_USER: ${FILE_STORAGE_POSTGRES_USER}
+      POSTGRES_PASSWORD: ${FILE_STORAGE_POSTGRES_PASSWORD}
+      POSTGRES_DB: ${FILE_STORAGE_POSTGRES_NAME_DB}
+      FILE_STORAGE_PORT: ${FILE_STORAGE_PORT}
+      HOST_PREFIX: ${HOST_PREFIX}
+      EUREKA_HOST: ${HOST_PREFIX}${EUREKA_SERVER_SYSTEM_LOGIN}:${EUREKA_SERVER_SYSTEM_PASSWORD}@monitor:${EUREKA_SERVER_PORT}/eureka
+      ACTUATOR_LOGIN: ${FILE_STORAGE_ACTUATOR_LOGIN}
+      ACTUATOR_PASSWORD: ${FILE_STORAGE_ACTUATOR_PASSWORD}
+    links:
+      - monitor
+    depends_on:
+      - file-storage-db
 
   monitor:
     build:
@@ -85,31 +122,100 @@ services:
       EUREKA_SERVER_SYSTEM_PASSWORD: ${EUREKA_SERVER_SYSTEM_PASSWORD}
       EUREKA_SERVER_ADMIN_LOGIN: ${EUREKA_SERVER_ADMIN_LOGIN}
       EUREKA_SERVER_ADMIN_PASSWORD: ${EUREKA_SERVER_ADMIN_PASSWORD}
+      ACTUATOR_LOGIN: ${EUREKA_SERVER_ACTUATOR_LOGIN}
+      ACTUATOR_PASSWORD: ${EUREKA_SERVER_ACTUATOR_PASSWORD}
       EUREKA_CLIENT_URI: ${EUREKA_CLIENT_URI}
 
-  proxy-redis:
+  gateway-redis:
     build:
       context: Gateway
       dockerfile: redis.dockerfile
-    container_name: proxy-redis
+    container_name: gateway-redis
     ports:
-      - ${GATEWAYJ_REDIS_PORT}:${GATEWAYJ_REDIS_PORT}
+      - ${GATEWAY_REDIS_PORT}:6379
 
-  proxy:
+  gateway:
     build:
       context: Gateway
       dockerfile: gateway.dockerfile
-    container_name: proxy
+    container_name: gateway
     ports:
-      - ${GATEWAYJ_PORT}:${GATEWAYJ_PORT}
+      - ${GATEWAY_PORT}:${GATEWAY_PORT}
     volumes:
       - ./back_data:/opt/server/logs
     environment:
       HOST_PREFIX: ${HOST_PREFIX}
       EUREKA_HOST: ${HOST_PREFIX}${EUREKA_SERVER_SYSTEM_LOGIN}:${EUREKA_SERVER_SYSTEM_PASSWORD}@monitor:${EUREKA_SERVER_PORT}/eureka
-      GATEWAYJ_PORT: ${GATEWAYJ_PORT}
-      REDIS_HOST: proxy-redis
+      GATEWAY_PORT: ${GATEWAY_PORT}
+      ACTUATOR_LOGIN: ${GATEWAY_ACTUATOR_LOGIN}
+      ACTUATOR_PASSWORD: ${GATEWAY_ACTUATOR_PASSWORD}
+      REDIS_HOST: gateway-redis
     depends_on:
-      - proxy-redis
+      - gateway-redis
     links:
       - monitor
+
+  rabbitmq:
+    image: rabbitmq:3-management
+    container_name: rabbitmq
+    ports:
+      - 5672:5672
+      - 15672:15672
+#    deploy:
+#      replicas: 2
+
+  email-sender:
+    build:
+      context: EmailSender
+      dockerfile: EmailSender-dev.dockerfile
+    container_name: email-sender
+#    deploy:
+#      replicas: 1
+#      placement:
+#        max_replicas_per_node: 1
+#      update_config:
+#        parallelism: 2
+#        delay: 10s
+#      restart_policy:
+#        condition: on-failure
+#        delay: 5s
+#        max_attempts: 3
+
+    ports:
+      - ${EMAIL_SENDER_PORT}:${EMAIL_SENDER_PORT}
+    volumes:
+      - ./back_data:/opt/server/logs
+    environment:
+      HOST_PREFIX: ${HOST_PREFIX}
+      EUREKA_HOST: ${HOST_PREFIX}${EUREKA_SERVER_SYSTEM_LOGIN}:${EUREKA_SERVER_SYSTEM_PASSWORD}@monitor:${EUREKA_SERVER_PORT}/eureka
+      APP_PORT: ${EMAIL_SENDER_PORT}
+      ACTUATOR_LOGIN: ${EMAIL_SENDER_ACTUATOR_LOGIN}
+      ACTUATOR_PASSWORD: ${EMAIL_SENDER_ACTUATOR_PASSWORD}
+      RABBIT_MQ_HOST: rabbitmq
+    depends_on:
+      - rabbitmq
+    links:
+      - monitor
+      - rabbitmq
+
+  messages-broker:
+    build:
+      context: NotificationResolver
+      dockerfile: NotificationResolver-dev.dockerfile
+    container_name: messages-broker
+    ports:
+      - ${MESSAGES_BROKER_PORT}:${MESSAGES_BROKER_PORT}
+    volumes:
+      - ./back_data:/opt/server/logs
+    environment:
+      HOST_PREFIX: ${HOST_PREFIX}
+      EUREKA_HOST: ${HOST_PREFIX}${EUREKA_SERVER_SYSTEM_LOGIN}:${EUREKA_SERVER_SYSTEM_PASSWORD}@monitor:${EUREKA_SERVER_PORT}/eureka
+      APP_PORT: ${MESSAGES_BROKER_PORT}
+      ACTUATOR_LOGIN: ${MESSAGES_BROKER_ACTUATOR_LOGIN}
+      ACTUATOR_PASSWORD: ${MESSAGES_BROKER_ACTUATOR_PASSWORD}
+      RABBIT_MQ_HOST: rabbitmq
+    depends_on:
+      - rabbitmq
+    links:
+      - monitor
+      - rabbitmq

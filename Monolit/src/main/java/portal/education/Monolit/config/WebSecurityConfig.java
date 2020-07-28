@@ -1,7 +1,7 @@
 package portal.education.Monolit.config;
 
-import portal.education.Monolit.filter.token.JwtRequestFilter;
-import portal.education.Monolit.service.article.ArticleCrudService;
+import org.springframework.security.core.userdetails.User;
+import portal.education.Monolit.filter.token.AuthenticationJwtFilter;
 import portal.education.Monolit.service.person.UserServiceImpl;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
@@ -10,7 +10,6 @@ import org.springframework.context.annotation.Configuration;
 import org.springframework.security.authentication.AuthenticationManager;
 import org.springframework.security.config.annotation.authentication.builders.AuthenticationManagerBuilder;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
-import org.springframework.security.config.annotation.web.configuration.EnableWebSecurity;
 import org.springframework.security.config.annotation.web.configuration.WebSecurityConfigurerAdapter;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.security.crypto.password.PasswordEncoder;
@@ -25,7 +24,7 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
     private UserServiceImpl userService;
 
     @Autowired
-    private JwtRequestFilter jwtRequestFilter;
+    private AuthenticationJwtFilter jwtRequestFilter;
 
     @Bean
     public PasswordEncoder encoder() {
@@ -36,6 +35,7 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
     protected void configure(HttpSecurity http) throws Exception {
         http
                 .csrf().disable()// We don't need CSRF for this example
+                .cors().disable()
                 .httpBasic()
                 .and()
                 .authorizeRequests()
@@ -43,9 +43,9 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
                 .antMatchers("/hellonotfree").hasRole("USER")
                 .antMatchers("/vendor/graphiql/**").permitAll()// TODO delete on prod
                 .antMatchers("/free/**").permitAll()// dont authenticate this particular request
-                .antMatchers("/registry/**").hasAnyRole("USER","AUTHOR","ADMIN")
-                .antMatchers("/user/**").hasAnyRole("USER","AUTHOR","ADMIN")
-                .antMatchers("/author/**").hasAnyRole("AUTHOR","ADMIN")
+                .antMatchers("/registry/**").hasAnyRole("USER", "AUTHOR", "ADMIN")
+                .antMatchers("/user/**").hasAnyRole("USER", "AUTHOR", "ADMIN")
+                .antMatchers("/author/**").hasAnyRole("AUTHOR", "ADMIN")
                 .antMatchers("/admin/**").hasRole("ADMIN")
                 .anyRequest().permitAll();// all other requests need to be authenticated
 
@@ -63,6 +63,11 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
     protected void configure(AuthenticationManagerBuilder auth) throws Exception {
         auth.userDetailsService(userService)
                 .passwordEncoder(encoder());
+
+        auth.inMemoryAuthentication()
+                .withUser("some")
+                .password("some")
+                .roles("some");
     }
 
 }

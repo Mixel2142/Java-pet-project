@@ -11,8 +11,10 @@
         <module name="Monitor" />
         <module name="FileStorage" />
         <module name="Gateway" />
+        <module name="GraphQLR" />
         <module name="EmailSender" />
         <module name="Monolit" />
+        <module name="NotificationResolver" />
       </profile>
     </annotationProcessing>
   </component>
@@ -23,8 +25,10 @@
       <module name="EmailSender" options="-parameters" />
       <module name="FileStorage" options="-parameters" />
       <module name="Gateway" options="-parameters" />
+      <module name="GraphQLR" options="-parameters" />
       <module name="Monitor" options="-parameters" />
       <module name="Monolit" options="-parameters" />
+      <module name="NotificationResolver" options="-parameters" />
     </option>
   </component>
 </project>

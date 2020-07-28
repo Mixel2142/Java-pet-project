@@ -76,7 +76,7 @@ public class JwtUtilForServer {
     }
 
     //for retrieveing any information from token we will need the secret key
-    private static Claims getAllClaimsFromToken(String token) {
+    public static Claims getAllClaimsFromToken(String token) {
         return Jwts.parser().setSigningKey(secret).parseClaimsJws(token).getBody();
 
     }
@@ -126,7 +126,7 @@ public class JwtUtilForServer {
         try {
             var myGrantedAuthority = new MyGrantedAuthority(roles);
 
-            final Object myCredentials = null;
+            final Object myCredentials = credentials;
             final Collection<GrantedAuthority> authorities = (Collection<GrantedAuthority>) myGrantedAuthority.getAuthority();
 
             final UserDetails principal = MyUserDetails.builder()

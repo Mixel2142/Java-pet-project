@@ -23,6 +23,9 @@ myeureka:
     system:
       login: SYSTEM_LOGIN
       password: SYSTEM_PASSWORD
+    actuator:
+      login: ${ACTUATOR_LOGIN}
+      password: ${ACTUATOR_PASSWORD}
 #control:
 #  server:
 #    admin:
@@ -30,18 +33,23 @@ myeureka:
 #      password: ADMIN_PASSWORD
 # SECURiTY
 
-control.server.admin.login: ${EUREKA_SERVER_ADMIN_LOGIN}
-control.server.admin.password: ${EUREKA_SERVER_ADMIN_PASSWORD}
+control.server.admin.login: ADMIN_LOGIN
+control.server.admin.password: ADMIN_PASSWORD
 
 eureka:
   instance:
-    hostname: localhost
+    instanceId: ${spring.cloud.client.hostname}:${spring.application.name}:${spring.application.instance_id:${random.value}}
+    preferIpAddress: false
+#    hostname: localhost
+    metadata-map:
+      user.name: ${myeureka.server.actuator.login}         #These two are needed so that the server
+      user.password: ${myeureka.server.actuator.password}    #can access the protected client endpoints
   client:
     registryFetchIntervalSeconds: 5
     registerWithEureka: true
     fetchRegistry: true
     serviceUrl:
-      defaultZone: http://SYSTEM_LOGIN:SYSTEM_PASSWORD@localhost:8761/eureka
+      defaultZone: ${EUREKA_CLIENT_URI}
     healthcheck:
       enabled: true
   server:

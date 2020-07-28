@@ -1,0 +1,64 @@
+######################### App configurations ############################################
+server:
+  port: 7777
+
+spring:
+  application:
+    name: graphqlr-service
+  cloud:
+    gateway:
+      discovery:
+        locator:
+          enabled: true
+          lowerCaseServiceId: true
+    loadbalancer:
+      ribbon:
+        enabled: false
+
+######################### DB config #########################
+#spring.r2dbc.initialization-mode: always
+spring.r2dbc.url: r2dbc:postgresql://localhost:5432/monolit_db
+spring.r2dbc.username: john
+spring.r2dbc.password: 123
+
+######################### SPRING BOOT ADMIN CLIENT #########################
+management:
+  endpoint:
+    shutdown.enabled: true
+    heapdump.enabled: false
+    health.show-details: always
+  endpoints:
+    enabled-by-default: true
+    web.exposure.include: "*"
+
+######################### EUREKA client config ############################
+eureka:
+  instance:
+    instanceId: ${spring.cloud.client.hostname}:${spring.application.name}:${spring.application.instance_id:${random.value}}
+    preferIpAddress: false
+    metadata-map:
+      user.name: ${ACTUATOR_LOGIN}         #These two are needed so that the server
+      user.password: ${ACTUATOR_PASSWORD}    #can access the protected client endpoints
+  client:
+    registryFetchIntervalSeconds: 30
+    registerWithEureka: true
+    fetchRegistry: true
+    serviceUrl:
+      defaultZone: ${EUREKA_HOST}
+    healthcheck:
+      enabled: true
+
+#instance.preferIpAddress в true и, когда приложение регистрируется в eureka, оно использует свой IP-адрес, а не имя хоста.
+
+####################### TODO SWUGGER ##################################################
+springdoc.api-docs.path: /api-docs
+springdoc.swagger-ui.path: /swagger-ui.html
+
+##################################################### GraphQL configuration ##############################################
+graphql.url: /api/free/graphql
+
+################################################ TODO DEV
+graphiql.endpoint.graphql: /api/free/graphql
+
+# TODO delete on prod
+graphiql.mapping: /api/free/graphiql

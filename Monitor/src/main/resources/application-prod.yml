@@ -1,6 +1,5 @@
 server.port: ${EUREKA_SERVER_PORT}
 
-
 spring:
   application:
     name: admin-service
@@ -33,6 +32,9 @@ myeureka:
     system:
       login:  ${EUREKA_SERVER_SYSTEM_LOGIN}
       password: ${EUREKA_SERVER_SYSTEM_PASSWORD}
+    actuator:
+      login: ${ACTUATOR_LOGIN}
+      password: ${ACTUATOR_PASSWORD}
 
 control:
   server:
@@ -46,6 +48,9 @@ eureka:
   instance:
     instanceId: ${spring.cloud.client.hostname}:${spring.application.name}:${spring.application.instance_id:${random.value}}}
     preferIpAddress: false
+    metadata-map:
+      user.name: ${myeureka.server.actuator.login}         #These two are needed so that the server
+      user.password: ${myeureka.server.actuator.password}    #can access the protected client endpoints
   client:
     registryFetchIntervalSeconds: 5
     registerWithEureka: true

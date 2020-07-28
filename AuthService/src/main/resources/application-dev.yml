@@ -30,14 +30,6 @@ spring.flyway.user: ${POSTGRES_USER}
 spring.flyway.password: ${POSTGRES_PASSWORD}
 
 ######################### SPRING BOOT ADMIN CLIENT #########################
-#Эти учетные данные будут использоваться Admin Server для аутентификации на конечных точках привода клиента
-#spring.boot.admin.client.instance.metadata.user.name: ACTUATOR_LOGIN
-#spring.boot.admin.client.instance.metadata.user.password: ACTUATOR_PASSWORD
-#
-#spring.security.user.name: ACTUATOR_LOGIN
-#spring.security.user.password: ACTUATOR_PASSWORD
-#management.security.role: ACTUATOR
-
 management:
   endpoint:
     shutdown.enabled: true
@@ -46,13 +38,15 @@ management:
   endpoints:
     enabled-by-default: true
     web.exposure.include: "*"
-#      cors:
-#        allowed-origins: "*"
+
 ######################### EUREKA client config ############################
 eureka:
   instance:
     instanceId: ${spring.cloud.client.hostname}:${spring.application.name}:${spring.application.instance_id:${random.value}}
     preferIpAddress: false
+    metadata-map:
+      user.name: ${ACTUATOR_LOGIN}         #These two are needed so that the server
+      user.password: ${ACTUATOR_PASSWORD}    #can access the protected client endpoints
   client:
     registryFetchIntervalSeconds: 30
     registerWithEureka: true

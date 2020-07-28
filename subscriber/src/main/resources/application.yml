@@ -1,0 +1,13 @@
+spring:
+  application:
+    name: messages-broker
+  rabbitmq:
+    port: 5672
+    username: guest
+    password: guest
+    host: localhost
+    template:
+      exchange: myrabbitmq.direct
+      routing-key: myrabbitmq.routingkey
+      queue: myrabbitmq.queue
+

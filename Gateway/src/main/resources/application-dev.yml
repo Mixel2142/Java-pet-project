@@ -12,13 +12,13 @@ spring:
           lowerCaseServiceId: true
       routes:
         - id: monolithello
-            uri: lb://monolit
-            predicates:
-              - Path=/hellofree
+          uri: lb://monolit
+          predicates:
+            - Path=/hellofree
         - id: monolithellonot
-            uri: lb://monolit
-            predicates:
-              - Path=/hellonotfree
+          uri: lb://monolit
+          predicates:
+            - Path=/hellonotfree
         - id: monolit
           uri: lb://monolit
           predicates:
@@ -65,36 +65,32 @@ spring:
   redis:
     host: ${REDIS_HOST}
 
-# SPRING BOOT ADMIN CLIENT {
-#Эти учетные данные будут использоваться Admin Server для аутентификации на конечных точках привода клиента
-#spring.boot.admin.client.instance.metadata.user.name: ACTUATOR_LOGIN
-#spring.boot.admin.client.instance.metadata.user.password: ACTUATOR_PASSWORD
-#
-#spring.security.user.name: ACTUATOR_LOGIN
-#spring.security.user.password: ACTUATOR_PASSWORD
-#management.security.role: ACTUATOR
-
+######################### SPRING BOOT ADMIN CLIENT #########################
 management:
   endpoint:
     shutdown.enabled: true
     heapdump.enabled: false
     health.show-details: always
   endpoints:
+    enabled-by-default: true
     web.exposure.include: "*"
-
-# SPRING BOOT ADMIN CLIENT }
 
 eureka:
   instance:
+    instanceId: ${spring.cloud.client.hostname}:${spring.application.name}:${spring.application.instance_id:${random.value}}
     preferIpAddress: false
+    metadata-map:
+      user.name: ${ACTUATOR_LOGIN}         #These two are needed so that the server
+      user.password: ${ACTUATOR_PASSWORD}    #can access the protected client endpoints
   client:
-    registryFetchIntervalSeconds: 5
+    registryFetchIntervalSeconds: 30
     registerWithEureka: true
     fetchRegistry: true
     serviceUrl:
       defaultZone: ${EUREKA_HOST}
     healthcheck:
       enabled: true
+
 #instance.preferIpAddress в true и, когда приложение регистрируется в eureka, оно использует свой IP-адрес, а не имя хоста.
 
 

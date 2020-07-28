@@ -9,8 +9,9 @@
         <option value="$PROJECT_DIR$/Monitor/pom.xml" />
         <option value="$PROJECT_DIR$/Gateway/pom.xml" />
         <option value="$PROJECT_DIR$/FileStorage/pom.xml" />
-        <option value="$PROJECT_DIR$/EmailSender/pom.xml" />
         <option value="$PROJECT_DIR$/AuthService/pom.xml" />
+        <option value="$PROJECT_DIR$/MessagesBroker/pom.xml" />
+        <option value="$PROJECT_DIR$/GraphQLR/pom.xml" />
       </list>
     </option>
   </component>

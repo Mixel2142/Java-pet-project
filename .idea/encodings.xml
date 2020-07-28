@@ -9,9 +9,12 @@
     <file url="file://$PROJECT_DIR$/FileStorage/src/main/resources" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/Gateway/src/main/java" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/Gateway/src/main/resources" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/GraphQLR/src/main/java" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/Monitor/src/main/java" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/Monitor/src/main/resources" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/Monolit/src/main/java" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/Monolit/src/main/resources" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/NotificationResolver/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/NotificationResolver/src/main/resources" charset="UTF-8" />
   </component>
 </project>

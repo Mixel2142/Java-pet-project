@@ -29,14 +29,9 @@ public class AuthService {
 
     @SneakyThrows
     public Mono<PairTokenDto> updateAuthData(AuthData data) {
-        var token = JwtUtilForServer.buildPreAuthenticatedAuthenticationToken(
-                data.getUserId().toString(),
-                data.getRoles(),
-                data.getCredentials()
-        );
-
         Map<String, String> claims = Map.of(
-                "token", JwtUtilForServer.convertToByteString(token)
+                "roles",data.getRoles(),
+                "cred",data.getCredentials()
         );
 
         String refreshTkn = JwtUtilForServer.generateDataPayloadToken(data.getUserId().toString(), "refresh", claims, JwtUtilForServer.REFRESHTOKEN_TTL);

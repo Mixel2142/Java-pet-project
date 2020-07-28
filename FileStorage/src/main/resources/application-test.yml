@@ -1,0 +1,86 @@
+######################### App configurations ############################################
+server:
+  port: 8090
+
+spring:
+  application:
+    name: file-storage-service
+  cloud:
+    gateway:
+      discovery:
+        locator:
+          enabled: true
+          lowerCaseServiceId: true
+    loadbalancer:
+      ribbon:
+        enabled: false
+
+logging.level.org.springframework.data.r2dbc: INFO
+logging.level.com.netflix.discovery.shared.transport: ERROR
+######################### DB config #########################
+#spring.r2dbc.initialization-mode: always
+spring.r2dbc.url: r2dbc:postgresql://localhost:5433/file_storage_db
+spring.r2dbc.username: john
+spring.r2dbc.password: 123
+
+spring.flyway.url: jdbc:postgresql://localhost:5433/file_storage_db
+spring.flyway.user: john
+spring.flyway.password: 123
+
+######################### SPRING BOOT ADMIN CLIENT #########################
+#Эти учетные данные будут использоваться Admin Server для аутентификации на конечных точках привода клиента
+#spring.boot.admin.client.instance.metadata.user.name: ACTUATOR_LOGIN
+#spring.boot.admin.client.instance.metadata.user.password: ACTUATOR_PASSWORD
+#
+#spring.security.user.name: ACTUATOR_LOGIN
+#spring.security.user.password: ACTUATOR_PASSWORD
+#management.security.role: ACTUATOR
+
+management:
+  endpoint:
+    shutdown.enabled: true
+    heapdump.enabled: false
+    health.show-details: always
+  endpoints:
+    enabled-by-default: true
+    web.exposure.include: "*"
+  security:
+    role: SYSTEM
+
+######################### EUREKA client config ############################
+eureka:
+  instance:
+    instanceId: ${spring.cloud.client.hostname}:${spring.application.name}:${spring.application.instance_id:${random.value}}
+    preferIpAddress: false
+    metadata-map:
+      user.name: ${myeureka.server.actuator.login}         #These two are needed so that the server
+      user.password: ${myeureka.server.actuator.password}    #can access the protected client endpoints
+  client:
+    registryFetchIntervalSeconds: 30
+    registerWithEureka: true
+    fetchRegistry: true
+    serviceUrl:
+      defaultZone: http://SYSTEM_LOGIN:SYSTEM_PASSWORD@localhost:8761/eureka
+    healthcheck:
+      enabled: true
+
+
+#instance.preferIpAddress в true и, когда приложение регистрируется в eureka, оно использует свой IP-адрес, а не имя хоста.
+
+####################### SWUGGER ##################################################
+springdoc.api-docs.path: /api-docs
+springdoc.swagger-ui.path: /swagger-ui.html
+
+######################### TTL Session (minuts) #######################
+#server.servlet.session.timeout: 1m
+
+# Now 1 hour
+jwt.time.validity.accesstoken: 3600
+# 5 * 60 * 60 :  5 часов
+# Now 1 mounth
+jwt.time.validity.refreshtoken: 8600000
+
+jwt.secret: bla_bla_secret
+
+# В секундах. Время жизни файлов, которые загрузили, но не привязали к статье. Сейчас 2 часа.
+time.life.file.without.article: 7200

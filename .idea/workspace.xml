@@ -1,55 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="76333a4b-65c7-4b4b-9ad9-deb7387b10af" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/AuthService/.env" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/AuthService/AuthServise-dev.dockerfile" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/AuthService/AuthServise-prod.dockerfile" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/AuthService/src/main/java/portal/education/serialize/EnumRole.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/AuthService/src/main/java/portal/education/serialize/MyGrantedAuthority.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/AuthService/src/main/java/portal/education/serialize/MyUserDetails.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/AuthService/src/main/resources/application-test.yml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Monolit/src/main/java/portal/education/Monolit/controller/GreetingController.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Monolit/src/main/java/portal/education/serialize/EnumRole.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Monolit/src/main/java/portal/education/serialize/MyGrantedAuthority.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Monolit/src/main/java/portal/education/serialize/MyUserDetails.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Monolit/src/main/resources/application-test.yml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.env" beforeDir="false" afterPath="$PROJECT_DIR$/.env" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/AuthService/docker-compose.yml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/AuthService/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/AuthService/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/AuthService/src/main/java/portal/education/AuthService/domain/AuthData.java" beforeDir="false" afterPath="$PROJECT_DIR$/AuthService/src/main/java/portal/education/AuthService/domain/AuthData.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/AuthService/src/main/java/portal/education/AuthService/service/AuthService.java" beforeDir="false" afterPath="$PROJECT_DIR$/AuthService/src/main/java/portal/education/AuthService/service/AuthService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/AuthService/src/main/java/portal/education/AuthService/util/JwtUtil.java" beforeDir="false" afterPath="$PROJECT_DIR$/AuthService/src/main/java/portal/education/AuthService/tokenFacilities/JwtUtilForServer.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/AuthService/src/main/resources/application-dev.yml" beforeDir="false" afterPath="$PROJECT_DIR$/AuthService/src/main/resources/application-dev.yml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/AuthService/src/main/resources/db/migration/V1__Init_DB.sql" beforeDir="false" afterPath="$PROJECT_DIR$/AuthService/src/main/resources/db/migration/V1__Init_DB.sql" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Gateway/src/main/java/portal/education/Gateway/SecurityGlobalFilter.java" beforeDir="false" afterPath="$PROJECT_DIR$/Gateway/src/main/java/portal/education/Gateway/SecurityGlobalFilter.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Gateway/src/main/resources/application-dev.yml" beforeDir="false" afterPath="$PROJECT_DIR$/Gateway/src/main/resources/application-dev.yml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Monolit/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/Monolit/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Monolit/src/main/java/portal/education/Monolit/MonolitApplication.java" beforeDir="false" afterPath="$PROJECT_DIR$/Monolit/src/main/java/portal/education/Monolit/MonolitApplication.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Monolit/src/main/java/portal/education/Monolit/config/SetupDataLoader.java" beforeDir="false" afterPath="$PROJECT_DIR$/Monolit/src/main/java/portal/education/Monolit/config/SetupDataLoader.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Monolit/src/main/java/portal/education/Monolit/config/SpringTaskConfig.java" beforeDir="false" afterPath="$PROJECT_DIR$/Monolit/src/main/java/portal/education/Monolit/config/SpringTaskConfig.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Monolit/src/main/java/portal/education/Monolit/config/WebSecurityConfig.java" beforeDir="false" afterPath="$PROJECT_DIR$/Monolit/src/main/java/portal/education/Monolit/config/WebSecurityConfig.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Monolit/src/main/java/portal/education/Monolit/controller/UserController.java" beforeDir="false" afterPath="$PROJECT_DIR$/Monolit/src/main/java/portal/education/Monolit/controller/UserController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Monolit/src/main/java/portal/education/Monolit/controller/registrations/FreeRegistryController.java" beforeDir="false" afterPath="$PROJECT_DIR$/Monolit/src/main/java/portal/education/Monolit/controller/registrations/FreeRegistryController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Monolit/src/main/java/portal/education/Monolit/controller/registrations/RegistryController.java" beforeDir="false" afterPath="$PROJECT_DIR$/Monolit/src/main/java/portal/education/Monolit/controller/registrations/RegistryController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Monolit/src/main/java/portal/education/Monolit/filter/token/JwtRequestFilter.java" beforeDir="false" afterPath="$PROJECT_DIR$/Monolit/src/main/java/portal/education/Monolit/filter/token/JwtRequestFilter.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Monolit/src/main/java/portal/education/Monolit/security/JwtPairTokenService.java" beforeDir="false" afterPath="$PROJECT_DIR$/Monolit/src/main/java/portal/education/Monolit/security/JwtPairTokenService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Monolit/src/main/java/portal/education/Monolit/service/JsonObjectConverter.java" beforeDir="false" afterPath="$PROJECT_DIR$/Monolit/src/main/java/portal/education/Monolit/service/JsonObjectConverter.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Monolit/src/main/java/portal/education/Monolit/service/notification/controller/AccountConfirmNotification.java" beforeDir="false" afterPath="$PROJECT_DIR$/Monolit/src/main/java/portal/education/Monolit/service/notification/controller/AccountConfirmNotification.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Monolit/src/main/java/portal/education/Monolit/service/notification/controller/ConfirmNotification.java" beforeDir="false" afterPath="$PROJECT_DIR$/Monolit/src/main/java/portal/education/Monolit/service/notification/controller/ConfirmNotification.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Monolit/src/main/java/portal/education/Monolit/service/notification/mailGenerator/ConfirmEmailGenerator.java" beforeDir="false" afterPath="$PROJECT_DIR$/Monolit/src/main/java/portal/education/Monolit/service/notification/mailGenerator/ConfirmEmailGenerator.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Monolit/src/main/java/portal/education/Monolit/service/notification/mailGenerator/PasswordForgetEmailGenerator.java" beforeDir="false" afterPath="$PROJECT_DIR$/Monolit/src/main/java/portal/education/Monolit/service/notification/mailGenerator/PasswordForgetEmailGenerator.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Monolit/src/main/java/portal/education/Monolit/service/notification/mailInfo/MailInfoFactoryIml.java" beforeDir="false" afterPath="$PROJECT_DIR$/Monolit/src/main/java/portal/education/Monolit/service/notification/mailInfo/MailInfoFactoryIml.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Monolit/src/main/java/portal/education/Monolit/service/person/AccountConfirmationServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/Monolit/src/main/java/portal/education/Monolit/service/person/AccountConfirmationServiceImpl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Monolit/src/main/java/portal/education/Monolit/service/person/UserServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/Monolit/src/main/java/portal/education/Monolit/service/person/UserServiceImpl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Monolit/src/main/java/portal/education/Monolit/utils/JwtUtil.java" beforeDir="false" afterPath="$PROJECT_DIR$/Monolit/src/main/java/portal/education/Monolit/utils/JwtUtilForMonolit.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/back_data/appStatistic/logfile.json" beforeDir="false" afterPath="$PROJECT_DIR$/back_data/appStatistic/logfile.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/back_data/logfile.json" beforeDir="false" afterPath="$PROJECT_DIR$/back_data/logfile.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/docker-compose-dev.yml" beforeDir="false" afterPath="$PROJECT_DIR$/docker-compose-dev.yml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/logs/logfile.json" beforeDir="false" afterPath="$PROJECT_DIR$/logs/logfile.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
-    </list>
+    <list default="true" id="76333a4b-65c7-4b4b-9ad9-deb7387b10af" name="Default Changelist" comment="" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -59,13 +11,16 @@
     <option name="autoscrollToSource" value="true" />
     <option name="IS_AUTOSCROLL_TO_SOURCE" value="true" />
   </component>
+  <component name="FavoritesManager">
+    <favorites_list name="Backend" />
+  </component>
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
         <option value="Interface" />
-        <option value="JUnit5 Test Class" />
         <option value="Enum" />
         <option value="Class" />
+        <option value="JUnit5 Test Class" />
       </list>
     </option>
   </component>
@@ -100,15 +55,17 @@
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrary" value="JUnit5" />
     <property name="com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrarySuperClass.JUnit5" value="" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/Monolit/src/main/java/portal/education/serialize" />
-    <property name="project.structure.last.edited" value="Project" />
+    <property name="introduce.parameter.lambda" value="true" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/GraphQLR/src/main/java/portal/education/GraphQLR/service" />
+    <property name="project.structure.last.edited" value="Modules" />
     <property name="project.structure.proportion" value="0.15" />
     <property name="project.structure.side.proportion" value="0.2" />
-    <property name="settings.editor.selected.configurable" value="reference.settings.project.maven.runner" />
-    <property name="two.files.diff.last.used.file" value="$PROJECT_DIR$/Gateway/src/main/resources/application-prod.yml" />
+    <property name="settings.editor.selected.configurable" value="preferences.pluginManager" />
+    <property name="two.files.diff.last.used.file" value="$PROJECT_DIR$/FileStorage/pom.xml" />
   </component>
   <component name="RecentsManager">
     <key name="CreateTestDialog.RecentsKey">
+      <recent name="portal.education.GraphQLR.repository" />
       <recent name="portal.education.AuthService.controller" />
     </key>
     <key name="CreateTestDialog.Recents.Supers">
@@ -126,28 +83,42 @@
       <recent name="portal.education.AuthService" />
     </key>
     <key name="CopyClassDialog.RECENTS_KEY">
-      <recent name="portal.education.serialize" />
-      <recent name="portal.education.Monolit.utils.mynew.toserver" />
+      <recent name="portal.education.MessagesBroker" />
+      <recent name="portal.education.EmailSender.mq" />
+      <recent name="portal.education.EmailSender.config" />
+      <recent name="portal.education.AuthService.config" />
       <recent name="portal.education.AuthService.util" />
-      <recent name="portal.education.AuthService.repo" />
-      <recent name="portal.education.AuthService.dto" />
     </key>
     <key name="CopyFile.RECENT_KEYS">
-      <recent name="$PROJECT_DIR$/Monolit/src/main/java/portal/education/serialize" />
-      <recent name="$PROJECT_DIR$/Monolit/src/main/resources" />
-      <recent name="$PROJECT_DIR$/AuthService/src/main/resources" />
-      <recent name="$PROJECT_DIR$/AuthService" />
-      <recent name="$PROJECT_DIR$/Gateway/src/main/resources" />
+      <recent name="$PROJECT_DIR$/GraphQLR/src/main/java/portal/education/GraphQLR/service" />
+      <recent name="$PROJECT_DIR$/GraphQLR/src/main/resources" />
+      <recent name="$PROJECT_DIR$/MessagesBroker" />
+      <recent name="$PROJECT_DIR$/MessagesBroker/src/main/resources" />
+      <recent name="$PROJECT_DIR$/MessagesBroker/src/main/java/portal/education/MessagesBroker" />
     </key>
   </component>
-  <component name="RunManager" selected="Application.MonolitApplication">
-    <configuration name="AuthServiceApplication" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+  <component name="RunManager" selected="Docker.docker-compose-dev.yml.file-storage-service: Compose Deployment">
+    <configuration name="AuthServiceApplication" type="Application" factoryName="Application" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="portal.education.AuthService.AuthServiceApplication" />
       <module name="AuthService" />
       <option name="VM_PARAMETERS" value="-Dspring.profiles.active=test" />
       <extension name="coverage">
         <pattern>
           <option name="PATTERN" value="portal.education.AuthService.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="FileStorageApplication" type="Application" factoryName="Application" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="portal.education.FileStorage.FileStorageApplication" />
+      <module name="FileStorage" />
+      <option name="VM_PARAMETERS" value="-Dspring.profiles.active=test" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="portal.education.FileStorage.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
@@ -169,16 +140,18 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="MonolitApplication" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="portal.education.Monolit.MonolitApplication" />
-      <module name="Monolit" />
-      <option name="VM_PARAMETERS" value="-Dspring.profiles.active=test" />
+    <configuration name="UserRepositoryTest.findAllSortedTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="GraphQLR" />
       <extension name="coverage">
         <pattern>
-          <option name="PATTERN" value="portal.education.Monolit.*" />
+          <option name="PATTERN" value="portal.education.GraphQLR.repository.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
+      <option name="PACKAGE_NAME" value="portal.education.GraphQLR.repository" />
+      <option name="MAIN_CLASS_NAME" value="portal.education.GraphQLR.repository.UserRepositoryTest" />
+      <option name="METHOD_NAME" value="findAllSortedTest" />
+      <option name="TEST_OBJECT" value="method" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
@@ -302,6 +275,7 @@
                 <option value="clean" />
                 <option value="install" />
                 <option value="spring-boot:repackage" />
+                <option value="-Dmaven.test.skip=true" />
               </list>
             </option>
             <option name="pomFileName" />
@@ -331,6 +305,7 @@
                 <option value="clean" />
                 <option value="install" />
                 <option value="spring-boot:repackage" />
+                <option value="-Dmaven.test.skip=true" />
               </list>
             </option>
             <option name="pomFileName" />
@@ -360,6 +335,7 @@
                 <option value="clean" />
                 <option value="install" />
                 <option value="spring-boot:repackage" />
+                <option value="-Dmaven.test.skip=true" />
               </list>
             </option>
             <option name="pomFileName" />
@@ -375,6 +351,34 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
+    <configuration name="MessagesBroker [clean,install...]" type="MavenRunConfiguration" factoryName="Maven" nameIsGenerated="true">
+      <MavenSettings>
+        <option name="myGeneralSettings" />
+        <option name="myRunnerSettings" />
+        <option name="myRunnerParameters">
+          <MavenRunnerParameters>
+            <option name="profiles">
+              <set />
+            </option>
+            <option name="goals">
+              <list>
+                <option value="clean" />
+                <option value="install" />
+                <option value="spring-boot:repackage" />
+                <option value="-Dmaven.test.skip=true" />
+              </list>
+            </option>
+            <option name="pomFileName" />
+            <option name="profilesMap">
+              <map />
+            </option>
+            <option name="resolveToWorkspace" value="false" />
+            <option name="workingDirPath" value="$PROJECT_DIR$/MessagesBroker" />
+          </MavenRunnerParameters>
+        </option>
+      </MavenSettings>
+      <method v="2" />
+    </configuration>
     <configuration name="Monitor [clean,install...]" type="MavenRunConfiguration" factoryName="Maven" nameIsGenerated="true">
       <MavenSettings>
         <option name="myGeneralSettings" />
@@ -389,6 +393,7 @@
                 <option value="clean" />
                 <option value="install" />
                 <option value="spring-boot:repackage" />
+                <option value="-Dmaven.test.skip=true" />
               </list>
             </option>
             <option name="pomFileName" />
@@ -434,12 +439,12 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="docker-compose-dev.yml.auth-db: Compose Deployment" type="docker-deploy" factoryName="docker-compose.yml" temporary="true" server-name="Docker">
+    <configuration name="docker-compose-dev.yml.file-storage-db: Compose Deployment" type="docker-deploy" factoryName="docker-compose.yml" temporary="true" server-name="Docker">
       <deployment type="docker-compose.yml">
         <settings>
           <option name="services">
             <list>
-              <option value="auth-db" />
+              <option value="file-storage-db" />
             </list>
           </option>
           <option name="sourceFilePath" value="docker-compose-dev.yml" />
@@ -447,12 +452,12 @@
       </deployment>
       <method v="2" />
     </configuration>
-    <configuration name="docker-compose-dev.yml.auth-service: Compose Deployment" type="docker-deploy" factoryName="docker-compose.yml" temporary="true" server-name="Docker">
+    <configuration name="docker-compose-dev.yml.file-storage-service: Compose Deployment" type="docker-deploy" factoryName="docker-compose.yml" temporary="true" server-name="Docker">
       <deployment type="docker-compose.yml">
         <settings>
           <option name="services">
             <list>
-              <option value="auth-service" />
+              <option value="file-storage-service" />
             </list>
           </option>
           <option name="sourceFilePath" value="docker-compose-dev.yml" />
@@ -460,12 +465,40 @@
       </deployment>
       <method v="2" />
     </configuration>
-    <configuration name="docker-compose-dev.yml.monolit-db: Compose Deployment" type="docker-deploy" factoryName="docker-compose.yml" temporary="true" server-name="Docker">
+    <configuration name="docker-compose-dev.yml.gateway: Compose Deployment" type="docker-deploy" factoryName="docker-compose.yml" server-name="Docker">
+      <deployment type="docker-compose.yml">
+        <settings>
+          <option name="commandLineOptions" value="--build" />
+          <option name="services">
+            <list>
+              <option value="gateway" />
+            </list>
+          </option>
+          <option name="sourceFilePath" value="docker-compose-dev.yml" />
+        </settings>
+      </deployment>
+      <method v="2" />
+    </configuration>
+    <configuration name="docker-compose-dev.yml.monolit: Compose Deployment" type="docker-deploy" factoryName="docker-compose.yml" temporary="true" server-name="Docker">
+      <deployment type="docker-compose.yml">
+        <settings>
+          <option name="commandLineOptions" value="--build" />
+          <option name="services">
+            <list>
+              <option value="monolit" />
+            </list>
+          </option>
+          <option name="sourceFilePath" value="docker-compose-dev.yml" />
+        </settings>
+      </deployment>
+      <method v="2" />
+    </configuration>
+    <configuration name="docker-compose-dev.yml.myfile-storage-db: Compose Deployment" type="docker-deploy" factoryName="docker-compose.yml" temporary="true" server-name="Docker">
       <deployment type="docker-compose.yml">
         <settings>
           <option name="services">
             <list>
-              <option value="monolit-db" />
+              <option value="myfile-storage-db" />
             </list>
           </option>
           <option name="sourceFilePath" value="docker-compose-dev.yml" />
@@ -475,11 +508,15 @@
     </configuration>
     <list>
       <item itemvalue="Application.MonitorApplication" />
-      <item itemvalue="Application.MonolitApplication" />
+      <item itemvalue="Application.FileStorageApplication" />
       <item itemvalue="Application.AuthServiceApplication" />
-      <item itemvalue="Docker.docker-compose-dev.yml.monolit-db: Compose Deployment" />
-      <item itemvalue="Docker.docker-compose-dev.yml.auth-db: Compose Deployment" />
-      <item itemvalue="Docker.docker-compose-dev.yml.auth-service: Compose Deployment" />
+      <item itemvalue="Docker.docker-compose-dev.yml.gateway: Compose Deployment" />
+      <item itemvalue="Docker.docker-compose-dev.yml.monolit: Compose Deployment" />
+      <item itemvalue="Docker.docker-compose-dev.yml.myfile-storage-db: Compose Deployment" />
+      <item itemvalue="Docker.docker-compose-dev.yml.file-storage-db: Compose Deployment" />
+      <item itemvalue="Docker.docker-compose-dev.yml.file-storage-service: Compose Deployment" />
+      <item itemvalue="JUnit.UserRepositoryTest.findAllSortedTest" />
+      <item itemvalue="Maven.MessagesBroker [clean,install...]" />
       <item itemvalue="Maven.Monolit [clean,install...]" />
       <item itemvalue="Maven.Monitor [clean,install...]" />
       <item itemvalue="Maven.Gateway [clean,install...]" />
@@ -490,11 +527,11 @@
     </list>
     <recent_temporary>
       <list>
-        <item itemvalue="Application.MonolitApplication" />
-        <item itemvalue="Application.AuthServiceApplication" />
-        <item itemvalue="Docker.docker-compose-dev.yml.auth-db: Compose Deployment" />
-        <item itemvalue="Docker.docker-compose-dev.yml.monolit-db: Compose Deployment" />
-        <item itemvalue="Docker.docker-compose-dev.yml.auth-service: Compose Deployment" />
+        <item itemvalue="Docker.docker-compose-dev.yml.file-storage-service: Compose Deployment" />
+        <item itemvalue="Docker.docker-compose-dev.yml.file-storage-db: Compose Deployment" />
+        <item itemvalue="Docker.docker-compose-dev.yml.myfile-storage-db: Compose Deployment" />
+        <item itemvalue="JUnit.UserRepositoryTest.findAllSortedTest" />
+        <item itemvalue="Docker.docker-compose-dev.yml.monolit: Compose Deployment" />
       </list>
     </recent_temporary>
   </component>
@@ -504,31 +541,10 @@
         <serviceView>
           <option name="contentProportion" value="0.26049942" />
           <treeState>
-            <expand>
-              <path>
-                <item name="services root" type="e789fda9:ObjectUtils$Sentinel" />
-                <item name="Docker" type="9fbbdea:ServiceModel$ServiceNode" />
-              </path>
-              <path>
-                <item name="services root" type="e789fda9:ObjectUtils$Sentinel" />
-                <item name="Docker" type="9fbbdea:ServiceModel$ServiceNode" />
-                <item name="Compose: docker-compose-dev.yml" type="9fbbdea:ServiceModel$ServiceNode" />
-              </path>
-              <path>
-                <item name="services root" type="e789fda9:ObjectUtils$Sentinel" />
-                <item name="Docker" type="9fbbdea:ServiceModel$ServiceNode" />
-                <item name="Compose: docker-compose-dev.yml" type="9fbbdea:ServiceModel$ServiceNode" />
-                <item name="auth-db" type="9fbbdea:ServiceModel$ServiceNode" />
-              </path>
-              <path>
-                <item name="services root" type="e789fda9:ObjectUtils$Sentinel" />
-                <item name="Docker" type="9fbbdea:ServiceModel$ServiceNode" />
-                <item name="Compose: docker-compose-dev.yml" type="9fbbdea:ServiceModel$ServiceNode" />
-                <item name="monolit-db" type="9fbbdea:ServiceModel$ServiceNode" />
-              </path>
-            </expand>
+            <expand />
             <select />
           </treeState>
+          <option name="groupByServiceGroups" value="false" />
         </serviceView>
       </list>
     </option>
@@ -558,7 +574,42 @@
       <option name="project" value="LOCAL" />
       <updated>1593502333109</updated>
     </task>
-    <option name="localTasksCounter" value="3" />
+    <task id="LOCAL-00003" summary="file storage add and set security settings">
+      <created>1594805448519</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1594805448519</updated>
+    </task>
+    <task id="LOCAL-00004" summary="add EnvGenerator bash script&#10;add security settings to monitor">
+      <created>1594815598351</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1594815598351</updated>
+    </task>
+    <task id="LOCAL-00005" summary="start to develop email sender">
+      <created>1594896978067</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1594896978067</updated>
+    </task>
+    <task id="LOCAL-00006" summary=" - rename MessagesBroker to NotificationResolver&#10; - add GraphQLR service&#10; - repaint schema.png, schema.odg&#10; - rewrite README.md">
+      <created>1595924892091</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1595924892091</updated>
+    </task>
+    <task id="LOCAL-00007" summary=" - rewrite README.md отступы в листах технологий">
+      <created>1595925207079</created>
+      <option name="number" value="00007" />
+      <option name="presentableId" value="LOCAL-00007" />
+      <option name="project" value="LOCAL" />
+      <updated>1595925207079</updated>
+    </task>
+    <option name="localTasksCounter" value="8" />
     <servers />
   </component>
   <component name="UnknownFeatures">
@@ -568,21 +619,30 @@
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
     <MESSAGE value="add descriptions for run Apps and clean structure of project p.s. read README.md" />
     <MESSAGE value="add descriptions for run Apps and clean structure of project p.s. read README.md&#10;&#10;fix AuthService (now it is live)" />
-    <option name="LAST_COMMIT_MESSAGE" value="add descriptions for run Apps and clean structure of project p.s. read README.md&#10;&#10;fix AuthService (now it is live)" />
+    <MESSAGE value="file storage add and set security settings" />
+    <MESSAGE value="add EnvGenerator bash script&#10;add security settings to monitor" />
+    <MESSAGE value="start to develop email sender" />
+    <MESSAGE value=" - rename MessagesBroker to NotificationResolver&#10; - add GraphQLR service&#10; - repaint schema.png, schema.odg&#10; - rewrite README.md" />
+    <MESSAGE value=" - rewrite README.md отступы в листах технологий" />
+    <option name="LAST_COMMIT_MESSAGE" value=" - rewrite README.md отступы в листах технологий" />
   </component>
   <component name="WindowStateProjectService">
     <state x="675" y="272" width="642" height="561" key="#AuthService:_Compose_Deployment" timestamp="1593346719722">
       <screen x="83" y="27" width="1837" height="1053" />
     </state>
     <state x="675" y="272" width="642" height="561" key="#AuthService:_Compose_Deployment/83.27.1837.1053@83.27.1837.1053" timestamp="1593346719722" />
-    <state x="661" y="223" width="671" height="659" key="#AuthServiceApplication" timestamp="1593334546656">
+    <state x="661" y="223" width="671" height="659" key="#AuthServiceApplication" timestamp="1594322633947">
       <screen x="83" y="27" width="1837" height="1053" />
     </state>
-    <state x="661" y="223" width="671" height="659" key="#AuthServiceApplication/83.27.1837.1053@83.27.1837.1053" timestamp="1593334546656" />
-    <state x="596" y="214" width="800" height="677" key="#Docker" timestamp="1593507258138">
+    <state x="661" y="223" width="671" height="659" key="#AuthServiceApplication/83.27.1837.1053@83.27.1837.1053" timestamp="1594322633947" />
+    <state x="596" y="214" width="800" height="677" key="#Docker" timestamp="1595763164492">
       <screen x="83" y="27" width="1837" height="1053" />
     </state>
-    <state x="596" y="214" width="800" height="677" key="#Docker/83.27.1837.1053@83.27.1837.1053" timestamp="1593507258138" />
+    <state x="596" y="214" width="800" height="677" key="#Docker/83.27.1837.1053@83.27.1837.1053" timestamp="1595763164492" />
+    <state x="661" y="223" width="671" height="659" key="#FileStorageApplication" timestamp="1594303709664">
+      <screen x="83" y="27" width="1837" height="1053" />
+    </state>
+    <state x="661" y="223" width="671" height="659" key="#FileStorageApplication/83.27.1837.1053@83.27.1837.1053" timestamp="1594303709664" />
     <state x="596" y="214" width="800" height="677" key="#File_and_Code_Templates" timestamp="1593498774440">
       <screen x="83" y="27" width="1837" height="1053" />
     </state>
@@ -595,14 +655,18 @@
       <screen x="83" y="27" width="1837" height="1053" />
     </state>
     <state x="634" y="222" width="800" height="677" key="#Project_Structure/83.27.1837.1053@83.27.1837.1053" timestamp="1593503559436" />
-    <state x="459" y="210" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1593614632206">
+    <state x="459" y="210" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1595861798407">
       <screen x="83" y="27" width="1837" height="1053" />
     </state>
-    <state x="459" y="210" key="#com.intellij.execution.impl.EditConfigurationsDialog/83.27.1837.1053@83.27.1837.1053" timestamp="1593614632206" />
-    <state x="809" y="265" width="544" height="575" key="#com.intellij.ide.util.MemberChooser" timestamp="1593613839692">
+    <state x="459" y="210" key="#com.intellij.execution.impl.EditConfigurationsDialog/83.27.1837.1053@83.27.1837.1053" timestamp="1595861798407" />
+    <state x="683" y="357" width="697" height="390" key="#com.intellij.fileTypes.FileTypeChooser" timestamp="1595872831952">
       <screen x="83" y="27" width="1837" height="1053" />
     </state>
-    <state x="809" y="265" width="544" height="575" key="#com.intellij.ide.util.MemberChooser/83.27.1837.1053@83.27.1837.1053" timestamp="1593613839692" />
+    <state x="683" y="357" width="697" height="390" key="#com.intellij.fileTypes.FileTypeChooser/83.27.1837.1053@83.27.1837.1053" timestamp="1595872831952" />
+    <state x="809" y="265" width="544" height="575" key="#com.intellij.ide.util.MemberChooser" timestamp="1595853161420">
+      <screen x="83" y="27" width="1837" height="1053" />
+    </state>
+    <state x="809" y="265" width="544" height="575" key="#com.intellij.ide.util.MemberChooser/83.27.1837.1053@83.27.1837.1053" timestamp="1595853161420" />
     <state x="689" y="307" width="603" height="490" key="#com.intellij.openapi.roots.ui.configuration.libraryEditor.LibraryEditorDialog" timestamp="1593172697094">
       <screen x="83" y="27" width="1837" height="1053" />
     </state>
@@ -615,111 +679,126 @@
       <screen x="83" y="27" width="1837" height="1053" />
     </state>
     <state x="754" y="434" key="#com.intellij.refactoring.move.moveClassesOrPackages.MoveClassesOrPackagesDialog.packages/83.27.1837.1053@83.27.1837.1053" timestamp="1593614818973" />
-    <state x="405" y="27" width="1182" height="1053" key="#com.intellij.refactoring.rename.AutomaticRenamingDialog" timestamp="1593610217101">
+    <state x="405" y="27" width="1182" height="1053" key="#com.intellij.refactoring.rename.AutomaticRenamingDialog" timestamp="1594207471476">
       <screen x="83" y="27" width="1837" height="1053" />
     </state>
-    <state x="405" y="27" width="1182" height="1053" key="#com.intellij.refactoring.rename.AutomaticRenamingDialog/83.27.1837.1053@83.27.1837.1053" timestamp="1593610217101" />
-    <state x="579" y="129" width="835" height="847" key="CommitChangelistDialog2" timestamp="1593502330907">
+    <state x="405" y="27" width="1182" height="1053" key="#com.intellij.refactoring.rename.AutomaticRenamingDialog/83.27.1837.1053@83.27.1837.1053" timestamp="1594207471476" />
+    <state x="729" y="417" width="524" height="484" key="#com.intellij.util.ui.classpath.ChooseLibrariesDialog" timestamp="1594306563222">
       <screen x="83" y="27" width="1837" height="1053" />
     </state>
-    <state x="579" y="129" width="835" height="847" key="CommitChangelistDialog2/83.27.1837.1053@83.27.1837.1053" timestamp="1593502330907" />
-    <state x="183" y="125" width="1627" height="855" maximized="true" key="DiffContextDialog" timestamp="1593515488017">
+    <state x="729" y="417" width="524" height="484" key="#com.intellij.util.ui.classpath.ChooseLibrariesDialog/83.27.1837.1053@83.27.1837.1053" timestamp="1594306563222" />
+    <state x="675" y="284" width="642" height="537" key="#docker-compose-dev.yml.gateway:_Compose_Deployment" timestamp="1594839426403">
       <screen x="83" y="27" width="1837" height="1053" />
     </state>
-    <state x="183" y="125" width="1627" height="855" maximized="true" key="DiffContextDialog/83.27.1837.1053@83.27.1837.1053" timestamp="1593515488017" />
-    <state x="784" y="310" width="424" height="484" key="FileChooserDialogImpl" timestamp="1593515486253">
+    <state x="675" y="284" width="642" height="537" key="#docker-compose-dev.yml.gateway:_Compose_Deployment/83.27.1837.1053@83.27.1837.1053" timestamp="1594839426403" />
+    <state x="645" y="285" width="703" height="544" key="#docker-compose-dev.yml.rabbitmq:_Compose_Deployment" timestamp="1595763012013">
       <screen x="83" y="27" width="1837" height="1053" />
     </state>
-    <state x="784" y="310" width="424" height="484" key="FileChooserDialogImpl/83.27.1837.1053@83.27.1837.1053" timestamp="1593515486253" />
-    <state width="1791" height="146" key="GridCell.Tab.0.bottom" timestamp="1593620142925">
+    <state x="645" y="285" width="703" height="544" key="#docker-compose-dev.yml.rabbitmq:_Compose_Deployment/83.27.1837.1053@83.27.1837.1053" timestamp="1595763012013" />
+    <state x="823" y="526" width="642" height="537" key="#docker-compose-dev.yml.somedb:_Compose_Deployment" timestamp="1594303315603">
       <screen x="83" y="27" width="1837" height="1053" />
     </state>
-    <state width="1791" height="146" key="GridCell.Tab.0.bottom/83.27.1837.1053@83.27.1837.1053" timestamp="1593620142925" />
-    <state width="1791" height="146" key="GridCell.Tab.0.center" timestamp="1593620142925">
+    <state x="823" y="526" width="642" height="537" key="#docker-compose-dev.yml.somedb:_Compose_Deployment/83.27.1837.1053@83.27.1837.1053" timestamp="1594303315603" />
+    <state x="579" y="129" width="835" height="847" key="CommitChangelistDialog2" timestamp="1595925206961">
       <screen x="83" y="27" width="1837" height="1053" />
     </state>
-    <state width="1791" height="146" key="GridCell.Tab.0.center/83.27.1837.1053@83.27.1837.1053" timestamp="1593620142925" />
-    <state width="1791" height="146" key="GridCell.Tab.0.left" timestamp="1593620142925">
+    <state x="579" y="129" width="835" height="847" key="CommitChangelistDialog2/83.27.1837.1053@83.27.1837.1053" timestamp="1595925206961" />
+    <state x="183" y="125" width="1627" height="855" maximized="true" key="DiffContextDialog" timestamp="1595166988007">
       <screen x="83" y="27" width="1837" height="1053" />
     </state>
-    <state width="1791" height="146" key="GridCell.Tab.0.left/83.27.1837.1053@83.27.1837.1053" timestamp="1593620142925" />
-    <state width="1791" height="146" key="GridCell.Tab.0.right" timestamp="1593620142925">
+    <state x="183" y="125" width="1627" height="855" maximized="true" key="DiffContextDialog/83.27.1837.1053@83.27.1837.1053" timestamp="1595166988007" />
+    <state x="842" y="444" width="307" height="216" key="DockerComposeFileDialog" timestamp="1595167606917">
       <screen x="83" y="27" width="1837" height="1053" />
     </state>
-    <state width="1791" height="146" key="GridCell.Tab.0.right/83.27.1837.1053@83.27.1837.1053" timestamp="1593620142925" />
-    <state width="1791" height="146" key="GridCell.Tab.1.bottom" timestamp="1593620142925">
+    <state x="842" y="444" width="307" height="216" key="DockerComposeFileDialog/83.27.1837.1053@83.27.1837.1053" timestamp="1595167606917" />
+    <state x="784" y="310" width="431" height="484" key="FileChooserDialogImpl" timestamp="1595774200502">
       <screen x="83" y="27" width="1837" height="1053" />
     </state>
-    <state width="1791" height="146" key="GridCell.Tab.1.bottom/83.27.1837.1053@83.27.1837.1053" timestamp="1593620142925" />
-    <state width="1791" height="146" key="GridCell.Tab.1.center" timestamp="1593620142925">
+    <state x="784" y="310" width="431" height="484" key="FileChooserDialogImpl/83.27.1837.1053@83.27.1837.1053" timestamp="1595774200502" />
+    <state width="1789" height="401" key="GridCell.Tab.0.bottom" timestamp="1595876954979">
       <screen x="83" y="27" width="1837" height="1053" />
     </state>
-    <state width="1791" height="146" key="GridCell.Tab.1.center/83.27.1837.1053@83.27.1837.1053" timestamp="1593620142925" />
-    <state width="1791" height="146" key="GridCell.Tab.1.left" timestamp="1593620142925">
+    <state width="1789" height="401" key="GridCell.Tab.0.bottom/83.27.1837.1053@83.27.1837.1053" timestamp="1595876954979" />
+    <state width="1789" height="401" key="GridCell.Tab.0.center" timestamp="1595876954978">
       <screen x="83" y="27" width="1837" height="1053" />
     </state>
-    <state width="1791" height="146" key="GridCell.Tab.1.left/83.27.1837.1053@83.27.1837.1053" timestamp="1593620142925" />
-    <state width="1791" height="146" key="GridCell.Tab.1.right" timestamp="1593620142925">
+    <state width="1789" height="401" key="GridCell.Tab.0.center/83.27.1837.1053@83.27.1837.1053" timestamp="1595876954978" />
+    <state width="1789" height="401" key="GridCell.Tab.0.left" timestamp="1595876954978">
       <screen x="83" y="27" width="1837" height="1053" />
     </state>
-    <state width="1791" height="146" key="GridCell.Tab.1.right/83.27.1837.1053@83.27.1837.1053" timestamp="1593620142925" />
+    <state width="1789" height="401" key="GridCell.Tab.0.left/83.27.1837.1053@83.27.1837.1053" timestamp="1595876954978" />
+    <state width="1789" height="401" key="GridCell.Tab.0.right" timestamp="1595876954978">
+      <screen x="83" y="27" width="1837" height="1053" />
+    </state>
+    <state width="1789" height="401" key="GridCell.Tab.0.right/83.27.1837.1053@83.27.1837.1053" timestamp="1595876954978" />
+    <state width="1789" height="401" key="GridCell.Tab.1.bottom" timestamp="1595876954980">
+      <screen x="83" y="27" width="1837" height="1053" />
+    </state>
+    <state width="1789" height="401" key="GridCell.Tab.1.bottom/83.27.1837.1053@83.27.1837.1053" timestamp="1595876954980" />
+    <state width="1789" height="401" key="GridCell.Tab.1.center" timestamp="1595876954979">
+      <screen x="83" y="27" width="1837" height="1053" />
+    </state>
+    <state width="1789" height="401" key="GridCell.Tab.1.center/83.27.1837.1053@83.27.1837.1053" timestamp="1595876954979" />
+    <state width="1789" height="401" key="GridCell.Tab.1.left" timestamp="1595876954979">
+      <screen x="83" y="27" width="1837" height="1053" />
+    </state>
+    <state width="1789" height="401" key="GridCell.Tab.1.left/83.27.1837.1053@83.27.1837.1053" timestamp="1595876954979" />
+    <state width="1789" height="401" key="GridCell.Tab.1.right" timestamp="1595876954979">
+      <screen x="83" y="27" width="1837" height="1053" />
+    </state>
+    <state width="1789" height="401" key="GridCell.Tab.1.right/83.27.1837.1053@83.27.1837.1053" timestamp="1595876954979" />
     <state x="863" y="170" width="924" height="684" key="Maven.ArtifactSearchDialog" timestamp="1593186504673">
       <screen x="83" y="27" width="1837" height="1053" />
     </state>
     <state x="863" y="170" width="924" height="684" key="Maven.ArtifactSearchDialog/83.27.1837.1053@83.27.1837.1053" timestamp="1593186504673" />
-    <state x="581" y="251" width="819" height="602" key="NewModule_or_Project.wizard" timestamp="1593334171848">
+    <state x="581" y="251" width="875" height="602" key="NewModule_or_Project.wizard" timestamp="1595774204858">
       <screen x="83" y="27" width="1837" height="1053" />
     </state>
-    <state x="581" y="251" width="819" height="602" key="NewModule_or_Project.wizard/83.27.1837.1053@83.27.1837.1053" timestamp="1593334171848" />
-    <state x="484" y="130" width="1024" height="845" key="SettingsEditor" timestamp="1593583597675">
+    <state x="581" y="251" width="875" height="602" key="NewModule_or_Project.wizard/83.27.1837.1053@83.27.1837.1053" timestamp="1595774204858" />
+    <state x="501" y="150" width="1014" height="730" key="SettingsEditor" timestamp="1595924101363">
       <screen x="83" y="27" width="1837" height="1053" />
     </state>
-    <state x="484" y="130" width="1024" height="845" key="SettingsEditor/83.27.1837.1053@83.27.1837.1053" timestamp="1593583597675" />
-    <state x="596" y="288" width="800" height="528" key="Vcs.Push.Dialog.v2" timestamp="1593502363284">
+    <state x="501" y="150" width="1014" height="730" key="SettingsEditor/83.27.1837.1053@83.27.1837.1053" timestamp="1595924101363" />
+    <state x="596" y="288" width="800" height="528" key="Vcs.Push.Dialog.v2" timestamp="1595925211510">
       <screen x="83" y="27" width="1837" height="1053" />
     </state>
-    <state x="596" y="288" width="800" height="528" key="Vcs.Push.Dialog.v2/83.27.1837.1053@83.27.1837.1053" timestamp="1593502363284" />
-    <state x="657" y="380" key="com.intellij.ide.util.TipDialog" timestamp="1593761342240">
+    <state x="596" y="288" width="800" height="528" key="Vcs.Push.Dialog.v2/83.27.1837.1053@83.27.1837.1053" timestamp="1595925211510" />
+    <state x="657" y="380" key="com.intellij.ide.util.TipDialog" timestamp="1595924079502">
       <screen x="83" y="27" width="1837" height="1053" />
     </state>
-    <state x="657" y="380" key="com.intellij.ide.util.TipDialog/83.27.1837.1053@83.27.1837.1053" timestamp="1593761342240" />
+    <state x="657" y="380" key="com.intellij.ide.util.TipDialog/83.27.1837.1053@83.27.1837.1053" timestamp="1595924079502" />
     <state x="769" y="472" width="454" height="160" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2" timestamp="1593502340423">
       <screen x="83" y="27" width="1837" height="1053" />
     </state>
     <state x="769" y="472" width="454" height="160" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2/83.27.1837.1053@83.27.1837.1053" timestamp="1593502340423" />
-    <state x="699" y="285" width="594" height="535" key="com.intellij.testIntegration.createTest.CreateTestDialog" timestamp="1593440786574">
+    <state x="699" y="285" width="630" height="535" key="com.intellij.testIntegration.createTest.CreateTestDialog" timestamp="1595852495155">
       <screen x="83" y="27" width="1837" height="1053" />
     </state>
-    <state x="699" y="285" width="594" height="535" key="com.intellij.testIntegration.createTest.CreateTestDialog/83.27.1837.1053@83.27.1837.1053" timestamp="1593440786574" />
-    <state x="646" y="291" width="878" height="590" key="find.popup" timestamp="1593616582526">
+    <state x="699" y="285" width="630" height="535" key="com.intellij.testIntegration.createTest.CreateTestDialog/83.27.1837.1053@83.27.1837.1053" timestamp="1595852495155" />
+    <state x="646" y="291" width="948" height="590" key="find.popup" timestamp="1595923998113">
       <screen x="83" y="27" width="1837" height="1053" />
     </state>
-    <state x="646" y="291" width="878" height="590" key="find.popup/83.27.1837.1053@83.27.1837.1053" timestamp="1593616582526" />
-    <state x="296" y="165" width="1372" height="594" key="new project wizard" timestamp="1593761412995">
+    <state x="646" y="291" width="948" height="590" key="find.popup/83.27.1837.1053@83.27.1837.1053" timestamp="1595923998113" />
+    <state x="296" y="165" width="1372" height="594" key="new project wizard" timestamp="1595166811143">
       <screen x="83" y="27" width="1837" height="1053" />
     </state>
-    <state x="296" y="165" width="1372" height="594" key="new project wizard/83.27.1837.1053@83.27.1837.1053" timestamp="1593761412995" />
-    <state x="665" y="253" key="run.anything.popup" timestamp="1593340345062">
+    <state x="296" y="165" width="1372" height="594" key="new project wizard/83.27.1837.1053@83.27.1837.1053" timestamp="1595166811143" />
+    <state x="665" y="253" key="run.anything.popup" timestamp="1594734683251">
       <screen x="83" y="27" width="1837" height="1053" />
     </state>
-    <state x="665" y="253" key="run.anything.popup/83.27.1837.1053@83.27.1837.1053" timestamp="1593340345062" />
-    <state x="664" y="257" width="672" height="678" key="search.everywhere.popup" timestamp="1593530107620">
+    <state x="665" y="253" key="run.anything.popup/83.27.1837.1053@83.27.1837.1053" timestamp="1594734683251" />
+    <state x="664" y="257" width="672" height="678" key="search.everywhere.popup" timestamp="1594882614206">
       <screen x="83" y="27" width="1837" height="1053" />
     </state>
-    <state x="664" y="257" width="672" height="678" key="search.everywhere.popup/83.27.1837.1053@83.27.1837.1053" timestamp="1593530107620" />
+    <state x="664" y="257" width="672" height="678" key="search.everywhere.popup/83.27.1837.1053@83.27.1837.1053" timestamp="1594882614206" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
       <breakpoints>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/AuthService/src/main/java/portal/education/AuthService/service/AuthService.java</url>
-          <line>72</line>
+          <line>67</line>
           <option name="timeStamp" value="14" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/AuthService/src/main/java/portal/education/AuthService/controller/RegistrationController.java</url>
-          <line>81</line>
-          <option name="timeStamp" value="21" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/AuthService/src/main/java/portal/education/AuthService/tokenFacilities/JwtUtilForServer.java</url>
@@ -728,17 +807,17 @@
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/AuthService/src/main/java/portal/education/AuthService/service/AuthService.java</url>
-          <line>77</line>
+          <line>72</line>
           <option name="timeStamp" value="25" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/AuthService/src/main/java/portal/education/AuthService/service/AuthService.java</url>
-          <line>79</line>
+          <line>74</line>
           <option name="timeStamp" value="26" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/AuthService/src/main/java/portal/education/AuthService/service/AuthService.java</url>
-          <line>66</line>
+          <line>61</line>
           <option name="timeStamp" value="27" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
@@ -763,32 +842,32 @@
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/AuthService/src/main/java/portal/education/AuthService/service/AuthService.java</url>
-          <line>82</line>
+          <line>77</line>
           <option name="timeStamp" value="36" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/AuthService/src/main/java/portal/education/AuthService/service/AuthService.java</url>
-          <line>80</line>
+          <line>75</line>
           <option name="timeStamp" value="37" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/Monolit/src/main/java/portal/education/Monolit/filter/token/JwtRequestFilter.java</url>
-          <line>49</line>
+          <url>file://$PROJECT_DIR$/Monolit/src/main/java/portal/education/Monolit/filter/token/AuthenticationJwtFilter.java</url>
+          <line>61</line>
           <option name="timeStamp" value="38" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/Monolit/src/main/java/portal/education/Monolit/filter/token/JwtRequestFilter.java</url>
-          <line>33</line>
+          <url>file://$PROJECT_DIR$/Monolit/src/main/java/portal/education/Monolit/filter/token/AuthenticationJwtFilter.java</url>
+          <line>41</line>
           <option name="timeStamp" value="40" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/Monolit/src/main/java/portal/education/Monolit/filter/token/JwtRequestFilter.java</url>
-          <line>36</line>
+          <url>file://$PROJECT_DIR$/Monolit/src/main/java/portal/education/Monolit/filter/token/AuthenticationJwtFilter.java</url>
+          <line>44</line>
           <option name="timeStamp" value="42" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/Monolit/src/main/java/portal/education/Monolit/filter/token/JwtRequestFilter.java</url>
-          <line>39</line>
+          <url>file://$PROJECT_DIR$/Monolit/src/main/java/portal/education/Monolit/filter/token/AuthenticationJwtFilter.java</url>
+          <line>49</line>
           <option name="timeStamp" value="43" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
@@ -802,18 +881,18 @@
           <option name="timeStamp" value="50" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/Monolit/src/main/java/portal/education/Monolit/filter/token/JwtRequestFilter.java</url>
-          <line>41</line>
+          <url>file://$PROJECT_DIR$/Monolit/src/main/java/portal/education/Monolit/filter/token/AuthenticationJwtFilter.java</url>
+          <line>51</line>
           <option name="timeStamp" value="57" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/Monolit/src/main/java/portal/education/Monolit/filter/token/JwtRequestFilter.java</url>
-          <line>43</line>
+          <url>file://$PROJECT_DIR$/Monolit/src/main/java/portal/education/Monolit/filter/token/AuthenticationJwtFilter.java</url>
+          <line>53</line>
           <option name="timeStamp" value="65" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/Monolit/src/main/java/portal/education/Monolit/filter/token/JwtRequestFilter.java</url>
-          <line>44</line>
+          <url>file://$PROJECT_DIR$/Monolit/src/main/java/portal/education/Monolit/filter/token/AuthenticationJwtFilter.java</url>
+          <line>54</line>
           <option name="timeStamp" value="66" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
@@ -830,6 +909,169 @@
           <url>file://$PROJECT_DIR$/AuthService/src/main/java/portal/education/AuthService/tokenFacilities/JwtUtilForServer.java</url>
           <line>158</line>
           <option name="timeStamp" value="74" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/AuthService/src/main/java/portal/education/AuthService/controller/RegistrationController.java</url>
+          <line>49</line>
+          <option name="timeStamp" value="75" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/AuthService/src/main/java/portal/education/AuthService/controller/RegistrationController.java</url>
+          <line>65</line>
+          <option name="timeStamp" value="76" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/AuthService/src/main/java/portal/education/AuthService/service/AuthService.java</url>
+          <line>54</line>
+          <option name="timeStamp" value="77" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/AuthService/src/main/java/portal/education/AuthService/service/AuthService.java</url>
+          <line>36</line>
+          <option name="timeStamp" value="78" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/Monolit/src/main/java/portal/education/Monolit/filter/token/AuthenticationJwtFilter.java</url>
+          <line>46</line>
+          <option name="timeStamp" value="79" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/Monolit/src/main/java/portal/education/Monolit/filter/token/AuthenticationJwtFilter.java</url>
+          <line>48</line>
+          <option name="timeStamp" value="84" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/Monolit/src/main/java/portal/education/Monolit/filter/token/AuthenticationJwtFilter.java</url>
+          <line>69</line>
+          <option name="timeStamp" value="85" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/Monolit/src/main/java/portal/education/Monolit/filter/token/AuthenticationJwtFilter.java</url>
+          <line>68</line>
+          <option name="timeStamp" value="86" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/Monolit/src/main/java/portal/education/Monolit/filter/token/AuthenticationJwtFilter.java</url>
+          <line>76</line>
+          <option name="timeStamp" value="87" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/FileStorage/src/main/java/portal/education/FileStorage/controller/FileStorageController.java</url>
+          <line>48</line>
+          <option name="timeStamp" value="101" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/FileStorage/src/main/java/portal/education/FileStorage/controller/FileStorageController.java</url>
+          <line>36</line>
+          <option name="timeStamp" value="105" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/FileStorage/src/main/java/portal/education/FileStorage/filter/AuthenticationJwtFilter.java</url>
+          <line>59</line>
+          <option name="timeStamp" value="108" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/FileStorage/src/main/java/portal/education/FileStorage/service/FileStorageService.java</url>
+          <line>39</line>
+          <option name="timeStamp" value="131" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/FileStorage/src/main/java/portal/education/FileStorage/service/FileStorageService.java</url>
+          <line>59</line>
+          <option name="timeStamp" value="132" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/FileStorage/src/main/java/portal/education/FileStorage/service/FileStorageService.java</url>
+          <line>62</line>
+          <option name="timeStamp" value="137" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/FileStorage/src/main/java/portal/education/FileStorage/controller/FileStorageController.java</url>
+          <line>60</line>
+          <option name="timeStamp" value="156" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/FileStorage/src/main/java/portal/education/FileStorage/service/FileStorageService.java</url>
+          <line>63</line>
+          <option name="timeStamp" value="158" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/FileStorage/src/main/java/portal/education/FileStorage/service/FileStorageService.java</url>
+          <line>69</line>
+          <option name="timeStamp" value="167" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/FileStorage/src/main/java/portal/education/FileStorage/service/FileStorageService.java</url>
+          <line>70</line>
+          <properties>
+            <option name="lambda-ordinal" value="0" />
+          </properties>
+          <option name="timeStamp" value="168" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/FileStorage/src/main/java/portal/education/FileStorage/filter/AuthenticationJwtFilter.java</url>
+          <line>65</line>
+          <option name="timeStamp" value="169" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/FileStorage/src/main/java/portal/education/FileStorage/filter/AuthenticationJwtFilter.java</url>
+          <line>78</line>
+          <option name="timeStamp" value="176" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/FileStorage/src/main/java/portal/education/FileStorage/filter/AuthenticationJwtFilter.java</url>
+          <line>86</line>
+          <option name="timeStamp" value="177" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/FileStorage/src/main/java/portal/education/FileStorage/config/AuthenticationManager.java</url>
+          <line>20</line>
+          <option name="timeStamp" value="182" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/FileStorage/src/main/java/portal/education/FileStorage/filter/AuthenticationJwtFilter.java</url>
+          <line>73</line>
+          <option name="timeStamp" value="183" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/FileStorage/src/main/java/portal/education/FileStorage/filter/AuthenticationJwtFilter.java</url>
+          <line>77</line>
+          <option name="timeStamp" value="184" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/FileStorage/src/main/java/portal/education/FileStorage/config/SecurityContextRepository.java</url>
+          <line>36</line>
+          <option name="timeStamp" value="185" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/FileStorage/src/main/java/portal/education/FileStorage/config/AuthenticationManager.java</url>
+          <line>14</line>
+          <option name="timeStamp" value="188" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/FileStorage/src/main/java/portal/education/FileStorage/config/AuthenticationManager.java</url>
+          <line>18</line>
+          <option name="timeStamp" value="190" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/FileStorage/src/main/java/portal/education/FileStorage/config/SecurityContextRepository.java</url>
+          <line>70</line>
+          <option name="timeStamp" value="194" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/FileStorage/src/main/java/portal/education/FileStorage/config/SecurityContextRepository.java</url>
+          <line>46</line>
+          <option name="timeStamp" value="198" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/FileStorage/src/main/java/portal/education/FileStorage/config/SecurityContextRepository.java</url>
+          <line>41</line>
+          <option name="timeStamp" value="199" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/FileStorage/src/main/java/portal/education/FileStorage/config/WebSecurityConfig.java</url>
+          <line>48</line>
+          <option name="timeStamp" value="200" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>

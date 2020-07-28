@@ -21,9 +21,13 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
     @Autowired
     private PasswordEncoder encoder;
 
-    static String SYSTEM_LOGIN;
+    static String EUREKA_LOGIN;
 
-    static String SYSTEM_PASSWORD;
+    static String EUREKA_PASSWORD;
+
+    static String ACTUATOR_LOGIN;
+
+    static String ACTUATOR_PASSWORD;
 
     static String ADMIN_LOGIN;
 
@@ -39,15 +43,18 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
     public void configure(AuthenticationManagerBuilder auth) throws Exception {
         auth.inMemoryAuthentication()
                 .passwordEncoder(encoder())
-                .withUser(SYSTEM_LOGIN).password(encoder.encode(SYSTEM_PASSWORD)).roles("SYSTEM")
+                .withUser(EUREKA_LOGIN).password(encoder.encode(EUREKA_PASSWORD)).roles("EUREKA")
                 .and()
-                .withUser(ADMIN_LOGIN).password(encoder.encode(ADMIN_PASSWORD)).roles("ADMIN");
+                .withUser(ADMIN_LOGIN).password(encoder.encode(ADMIN_PASSWORD)).roles("ADMIN")
+                .and()
+                .withUser(ACTUATOR_LOGIN).password(encoder.encode(ACTUATOR_PASSWORD)).roles("ACTUATOR");
     }
 
 
     @Override
     protected void configure(HttpSecurity http) throws Exception {
         http
+                .csrf().disable()
                 .httpBasic()
                 .and()
                 .authorizeRequests()
@@ -55,9 +62,9 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
                 .antMatchers(this.adminServer.getContextPath() + "/assets/**").permitAll()
                 .antMatchers(this.adminServer.getContextPath() + "/sba-settings.js").permitAll()
                 .antMatchers(this.adminServer.getContextPath() + "/login").permitAll()
-                .antMatchers("/manage/health**", "/actuator/**").permitAll()
+                .antMatchers("/manage/health**", "/actuator/**").hasRole("ACTUATOR")
                 .antMatchers("/eureka/css/**", "/eureka/images/**", "/eureka/fonts/**", "/eureka/js/**").permitAll()
-                .antMatchers("/eureka/**").hasRole("SYSTEM")
+                .antMatchers("/eureka/**").hasRole("EUREKA")
                 .anyRequest().authenticated()
                 .and()
                 .csrf().disable();
@@ -75,13 +82,13 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
     }
 
     @Value("${myeureka.server.system.login}")
-    public void setSystemLogin(String systemLogin) {
-        this.SYSTEM_LOGIN = systemLogin;
+    public void setEurekaLogin(String systemLogin) {
+        this.EUREKA_LOGIN = systemLogin;
     }
 
     @Value("${myeureka.server.system.password}")
-    public void setSystemPassword(String systemPassword) {
-        this.SYSTEM_PASSWORD = systemPassword;
+    public void setEurekaPassword(String systemPassword) {
+        this.EUREKA_PASSWORD = systemPassword;
     }
 
     @Value("${control.server.admin.login}")
@@ -92,6 +99,16 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
     @Value("${control.server.admin.password}")
     public void setAdminPassword(String adminPassword) {
         this.ADMIN_PASSWORD = adminPassword;
+    }
+
+    @Value("${myeureka.server.actuator.login}")
+    public void setActuatorLogin(String actuatorLogin) {
+        this.ACTUATOR_LOGIN = actuatorLogin;
+    }
+
+    @Value("${myeureka.server.actuator.password}")
+    public void setActuatorPassword(String actuatorPassword) {
+        this.ACTUATOR_PASSWORD = actuatorPassword;
     }
 
 }

@@ -121,7 +121,7 @@ public class RegistrationController {
             @ApiResponse(responseCode = "500", description = "Any other run time error")
     })
     @PostMapping("/update/refreshToken")
-    public Mono<PairTokenDto> updateAccessToken(@RequestBody @Valid AccountDto accountDto) {
+    public Mono<PairTokenDto> updateRefreshToken(@RequestBody @Valid AccountDto accountDto) {
         return authService.generatePairFromLoginAndPassword(accountDto);
     }
 }

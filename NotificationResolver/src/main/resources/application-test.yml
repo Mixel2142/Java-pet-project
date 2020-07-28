@@ -1,0 +1,54 @@
+######################### App configurations ############################################
+server:
+  port: 8060
+
+spring:
+  application:
+    name: messages-broker
+  cloud:
+    gateway:
+      discovery:
+        locator:
+          enabled: true
+          lowerCaseServiceId: true
+    loadbalancer:
+      ribbon:
+        enabled: false
+  ######################### rabbitmq config ############################
+  rabbitmq:
+    port: 5672
+    username: guest
+    password: guest
+    host: localhost
+    template:
+      exchange: messages-broker.direct
+      routing-key-email: notification.email
+      queue-email: notification.email.queue
+######################### SPRING BOOT ADMIN CLIENT #########################
+management:
+  endpoint:
+    shutdown.enabled: true
+    heapdump.enabled: false
+    health.show-details: always
+  endpoints:
+    enabled-by-default: true
+    web.exposure.include: "*"
+
+######################### EUREKA client config ############################
+eureka:
+  instance:
+    instanceId: ${spring.cloud.client.hostname}:${spring.application.name}:${spring.application.instance_id:${random.value}}
+    preferIpAddress: false
+    metadata-map:
+      user.name: ACTUATOR_LOGIN         #These two are needed so that the server
+      user.password: ACTUATOR_PASSWORD    #can access the protected client endpoints
+  client:
+    registryFetchIntervalSeconds: 30
+    registerWithEureka: true
+    fetchRegistry: true
+    serviceUrl:
+      defaultZone: http://system:system@localhost:8761/eureka
+    healthcheck:
+      enabled: true
+#instance.preferIpAddress в true и, когда приложение регистрируется в eureka, оно использует свой IP-адрес, а не имя хоста.
+
